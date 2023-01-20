@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		716C46C52977B5BE006CEFA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716C46C42977B5BE006CEFA3 /* AppDelegate.swift */; };
 		716C46C72977B5BE006CEFA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716C46C62977B5BE006CEFA3 /* SceneDelegate.swift */; };
-		716C46C92977B5BE006CEFA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716C46C82977B5BE006CEFA3 /* ViewController.swift */; };
 		716C46CE2977B5BF006CEFA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716C46CD2977B5BF006CEFA3 /* Assets.xcassets */; };
 		716C46D12977B5BF006CEFA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716C46CF2977B5BF006CEFA3 /* LaunchScreen.storyboard */; };
 		716C46E02977B767006CEFA3 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716C46DF2977B767006CEFA3 /* MainTabController.swift */; };
@@ -24,7 +23,6 @@
 		716C46C12977B5BE006CEFA3 /* Instargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		716C46C42977B5BE006CEFA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		716C46C62977B5BE006CEFA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		716C46C82977B5BE006CEFA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		716C46CD2977B5BF006CEFA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		716C46D02977B5BF006CEFA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		716C46D22977B5BF006CEFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 				716C46D82977B6DD006CEFA3 /* Utils */,
 				716C46C42977B5BE006CEFA3 /* AppDelegate.swift */,
 				716C46C62977B5BE006CEFA3 /* SceneDelegate.swift */,
-				716C46C82977B5BE006CEFA3 /* ViewController.swift */,
 				716C46CD2977B5BF006CEFA3 /* Assets.xcassets */,
 				716C46CF2977B5BF006CEFA3 /* LaunchScreen.storyboard */,
 				716C46D22977B5BF006CEFA3 /* Info.plist */,
@@ -200,7 +197,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				716C46C92977B5BE006CEFA3 /* ViewController.swift in Sources */,
 				717098B72978890B00CDD4BB /* ImageSelectorController.swift in Sources */,
 				717098B92978893100CDD4BB /* NotificationController.swift in Sources */,
 				717098B5297888CA00CDD4BB /* SearchController.swift in Sources */,

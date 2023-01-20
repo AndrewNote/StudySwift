@@ -17,8 +17,11 @@ class MainTabController: UITabBarController {
     
     // MARK: - Helpers
     func configureViewControllers() {
+        let layout = UICollectionViewFlowLayout()
+        // UICollectionViewLayout() 이거랑 많이 헷갈려서 사용 많이 할듯 에러도 안남
         // feed ViewController에 navigationController이 내장되어 있다.
-        let feed = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected") , rootViewController: FeedController())    // 상수에 뷰 컨트롤러의 인스턴스를 저장 하는것
+        // 상수에 뷰 컨트롤러의 인스턴스를 저장 하는것
+        let feed = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected") , rootViewController: FeedController(collectionViewLayout: layout)) // 
         let search = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected") , rootViewController: SearchController())
         let imageSelector = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "plus_unselected"), selectedImage: #imageLiteral(resourceName: "plus_unselected") , rootViewController: ImageSelectorController())
         let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), selectedImage: #imageLiteral(resourceName: "like_selected") , rootViewController: NotificationController())
