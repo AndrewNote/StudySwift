@@ -20,12 +20,13 @@ class FeedController: UICollectionViewController {
     
     private func configureUI(){
         // 동일한 식별자를 등록함 때문에 우리는 등록한 셀은 반환하는 셀과 일치함
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
     }
 }
 
 extension FeedController {
+    // UICollectionView 표준을 등록하는 대신 내가 만든 FeedCell을 사용한다.
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -36,8 +37,8 @@ extension FeedController {
         // 디스플레이에서는 필요한 만큼의 메모리만 사용한다. 메모리 캐시를 통해 돌아가 재사용 식별자를 사용하여 셀을 찾는다.
         // 이미 사용한 cell은 생성하는 대신 캐시에서 가져온다.
         // withReuseIdentifier: 재사용할 식별자
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCell
+        // FeedCell로 캐스팅됨 (as!)
         return cell
     }
 }
