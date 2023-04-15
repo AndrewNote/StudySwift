@@ -9,11 +9,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let topText = {
+    private let appNameLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "오늘의 명언"
+        label.text = "명언 생성기"
         return label
+    }()
+    
+    private let nextButton = {
+        let button = UIButton(type: .system)
+        return button
     }()
     
     override func viewDidLoad() {
@@ -23,11 +28,11 @@ class ViewController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .white
-        view.addSubview(topText)
+        view.addSubview(appNameLabel)
         
         NSLayoutConstraint.activate([
-            topText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            topText.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            appNameLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
         ])
     }
 }
