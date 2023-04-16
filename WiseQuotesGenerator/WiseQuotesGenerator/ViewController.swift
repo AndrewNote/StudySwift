@@ -16,10 +16,20 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let nextButton = {
+    private let backgroundImage = {
+        let image = UIImage(named: "Wallpaper")
+        return image
+    }()
+    
+    private lazy var nextButton = {
         let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func didTapNextButton() {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +39,13 @@ class ViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         view.addSubview(appNameLabel)
+        view.addSubview(backgroundImage)
         
         NSLayoutConstraint.activate([
             appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             appNameLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            
+            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
