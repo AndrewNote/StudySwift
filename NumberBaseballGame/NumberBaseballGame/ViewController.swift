@@ -92,6 +92,27 @@ class ViewController: UIViewController {
                 numbers.append(randomNumber)
             }
         }
+        
+        func getStrikeCount(answer: [Int], guess: [Int]) -> Int {
+            var count = 0
+            for (index, number) in guess.enumerated() {
+                if answer[index] == number {
+                    count += 1
+                }
+            }
+            return count
+        }
+
+        func getBallCount(answer: [Int], guess: [Int]) -> Int {
+            var count = 0
+            for number in guess {
+                if answer.contains(number) && answer.firstIndex(of: number) != guess.firstIndex(of: number) {
+                    count += 1
+                }
+            }
+            return count
+        }
+
     }
     
     private func configureUI() {
