@@ -27,14 +27,16 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let userImageView = {
-        let imageView = UIImageView()
-        return imageView
+    private let userEmoji = {
+        let label = UILabel()
+        label.text = "✌️"
+        return label
     }()
     
-    private let computerImageView = {
-        let imageView = UIImageView()
-        return imageView
+    private let computerEmoji = {
+        let label = UILabel()
+        label.text = "✋"
+        return label
     }()
     
     private let startOrSeleteButton = {
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
         return stackView
     }()
     
-    private let imageStackView = {
+    private let emojiStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         return stackView
@@ -65,12 +67,14 @@ class ViewController: UIViewController {
     
     private let mainStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureStackView()
         configureUI()
     }
     
@@ -78,12 +82,12 @@ class ViewController: UIViewController {
         labelStackView.addArrangedSubview(userLabel)
         labelStackView.addArrangedSubview(computerLabel)
         
-        imageStackView.addArrangedSubview(userImageView)
-        imageStackView.addArrangedSubview(computerImageView)
+        emojiStackView.addArrangedSubview(userEmoji)
+        emojiStackView.addArrangedSubview(computerEmoji)
         
         mainStackView.addArrangedSubview(gameTitleLabel)
         mainStackView.addArrangedSubview(labelStackView)
-        mainStackView.addArrangedSubview(imageStackView)
+        mainStackView.addArrangedSubview(emojiStackView)
         mainStackView.addArrangedSubview(startOrSeleteButton)
         mainStackView.addArrangedSubview(resetButton)
     }
@@ -91,6 +95,14 @@ class ViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .white
         startOrSeleteButton.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
+        view.addSubview(mainStackView)
+        
+        NSLayoutConstraint.activate([
+            emojiStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            emojiStackView.heightAnchor.constraint(equalToConstant: 200),
+            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
     
     @objc private func didTapStartButton() {
