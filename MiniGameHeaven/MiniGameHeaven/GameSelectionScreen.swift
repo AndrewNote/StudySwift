@@ -26,7 +26,12 @@ class GameSelectionScreen: UIViewController {
         return collectionView
     }()
     
-    
+    // UICollectionViewFlowLayout 생성
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    layout.minimumLineSpacing = 10
+    layout.minimumInteritemSpacing = 10
+    layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
