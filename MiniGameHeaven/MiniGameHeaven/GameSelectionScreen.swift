@@ -33,6 +33,13 @@ class GameSelectionScreen: UIViewController {
     layout.minimumInteritemSpacing = 10
     layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
+    // diffable datasource 설정
+    dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = item.color
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
