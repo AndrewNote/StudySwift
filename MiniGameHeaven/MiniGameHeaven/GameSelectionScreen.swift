@@ -40,6 +40,15 @@ class GameSelectionScreen: UIViewController {
         return cell
     }
     
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems([
+        Item(color: .red),
+        Item(color: .green),
+        Item(color: .blue)
+    ])
+    dataSource.apply(snapshot, animatingDifferences: false)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
