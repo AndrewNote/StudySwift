@@ -12,49 +12,43 @@ enum Section: CaseIterable {
     case main
 }
 
-struct Mountain: Hashable {
-    let name: String
-    let height: Int
-    let identifier = UUID()  // Item identifier는 unique해야 하므로
-}
-
 class GameSelectionScreen: UIViewController {
     
-    private let dataSource: UICollectionViewDiffableDataSource<Section, Mountain>
-    private let mainCollectionView = {
+    private var dataSource: UICollectionViewDiffableDataSource<Section, String>?
+    private lazy var mainCollectionView = {
         let collectionView = UICollectionView()
         return collectionView
     }()
     
     // UICollectionViewFlowLayout 생성
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .vertical
-    layout.minimumLineSpacing = 10
-    layout.minimumInteritemSpacing = 10
-    layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
-    // diffable datasource 설정
-    dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = item.color
-        return cell
+    private let layout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return layout
     }
     
-    var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-    snapshot.appendSections([.main])
-    snapshot.appendItems([
-        Item(color: .red),
-        Item(color: .green),
-        Item(color: .blue)
-    ])
-    dataSource.apply(snapshot, animatingDifferences: false)
+    // diffable datasource 설정
+    dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: mainCollectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-extension GameSelectionScreen: UITableViewDiffableDataSource<<#SectionIdentifierType: Hashable & Sendable#>, <#ItemIdentifierType: Hashable & Sendable#>> {
+extension GameSelectionScreen {
     
+    private func setUpDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(["iOS"])
+        dataSource?.apply(snapshot, animatingDifferences: false)
+    }
 }
 
