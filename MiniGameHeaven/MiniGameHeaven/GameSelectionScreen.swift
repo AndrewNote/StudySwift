@@ -31,10 +31,14 @@ class GameSelectionScreen: UIViewController {
         return layout
     }
     
-    // diffable datasource 설정
-    dataSource = UICollectionViewDiffableDataSource<Section, String>(collectionView: mainCollectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        return cell
+
+    let registration = UICollectionView.CellRegistration<TodoListCell, TodoLabel> { cell, IndexPath, todo in
+        cell.configure(title: todo.title, content: todo.content, date: todo.date)
+    }
+    
+    dataSource = UICollectionViewDiffableDataSource<Section, TodoLabel>(collectionView: collectionView) {
+        (collectionView, indexPath, todo) -> UICollectionViewCell? in
+        return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: todo)
     }
     
     override func viewDidLoad() {
