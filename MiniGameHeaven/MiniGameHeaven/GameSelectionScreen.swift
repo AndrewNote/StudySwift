@@ -12,9 +12,14 @@ enum Section: CaseIterable {
     case main
 }
 
+struct MenuLabel: Hashable {
+    let title: String
+    let content: String
+}
+
 class GameSelectionScreen: UIViewController {
     
-    private var dataSource: UICollectionViewDiffableDataSource<Section, String>?
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MenuLabel>?
     private lazy var mainCollectionView = {
         let collectionView = UICollectionView()
         return collectionView
@@ -31,27 +36,30 @@ class GameSelectionScreen: UIViewController {
         return layout
     }
     
-
-    let registration = UICollectionView.CellRegistration<TodoListCell, TodoLabel> { cell, IndexPath, todo in
-        cell.configure(title: todo.title, content: todo.content, date: todo.date)
-    }
-    
-    dataSource = UICollectionViewDiffableDataSource<Section, TodoLabel>(collectionView: collectionView) {
-        (collectionView, indexPath, todo) -> UICollectionViewCell? in
-        return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: todo)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .systemBackground
     }
 }
 
 extension GameSelectionScreen {
     
     private func setUpDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        let registration = UICollectionView.CellRegistration<MenuListCell, MenuLabel> { cell, IndexPath, menu in
+            
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<Section, MenuLabel>(collectionView: mainCollectionView) {
+            (collectionView, indexPath, menu) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: menu)
+        }
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MenuLabel>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(["iOS"])
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 }
