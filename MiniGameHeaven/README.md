@@ -15,3 +15,33 @@ UICollectionView
 - DiffableDataSource는 Section 및 row 구성을 쉽게 업데이트 할 수 있게 함
 - DiffableDataSource는 Section에 대해 고유한 식별자를 사용하여
 
+
+## Cell 등록
+### register로 등록
+- 간단하고 직관적인 방법
+- Cell 구성 로직이 클로저 내부에 구현되어 있어 코드 중복이 발생할 수 있고 유지보수가 어려움
+```swift
+collectionView.register(TodoListCell.self, forCellWithReuseIdentifier: "TodoListCell")
+
+let dataSource = UICollectionViewDiffableDataSource<Section, TodoLabel>(collectionView: collectionView) {
+    (collectionView, indexPath, todo) -> UICollectionViewCell? in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoListCell", for: indexPath) as? TodoListCell
+        cell?.configure(title: todo.title, content: todo.content, date: todo.date)
+        return cell
+    }
+```
+
+### register를 따로 하지 않고 register & configure 작업
+- Cell의 등록과 구성아 하나의 객체로 통합되어 있어서 한 곳에 집중되므로 코드가 깔끔해짐
+- 등록된 Cell을 통해 구체적인 구성 로직을 제공하므로 중복 코드를 피하고 Cell의 구성을 일관되게 처리가능
+- 클로저 내부에서 Cell을 구성할 때 다양한 커스텀 로직을 적용할 수 있음 **런타임에서 동적으로 Cell을 구성하기에 더 많은 유연성 제공)**
+```swift
+        let registration = UICollectionView.CellRegistration<TodoListCell, TodoLabel> { cell, IndexPath, todo in
+            cell.configure(title: todo.title, content: todo.content, date: todo.date)
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<Section, TodoLabel>(collectionView: collectionView) {
+            (collectionView, indexPath, todo) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: todo)
+        }
+```
