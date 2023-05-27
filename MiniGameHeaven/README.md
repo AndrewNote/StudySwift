@@ -15,6 +15,18 @@ UICollectionView
 - DiffableDataSource는 Section 및 row 구성을 쉽게 업데이트 할 수 있게 함
 - DiffableDataSource는 Section에 대해 고유한 식별자를 사용하여
 
+### UICollectionView (iOS 13+)
+- Data: Diffable Data Source
+-- DataSource와 CollectionView 사이의 인터페이스 역할을 하는 기능
+- layout: Compositional Layout (List Configuration)
+- Presentation(표시): UICollectionViewCell / UICollectionReusableView
+-- ListCell: 
+-- View Configuration: Cell의 디자인과 레이아웃을 더 자유롭게 구현할 수 있으며 더 세밀하게 제어할 수 있음
+
+### List Configuration
+- Compositional Layout 기반으로 만들어졌음
+- 기본적으로 UICollectionView는 그리드 형태로 Item을 배치하지만 UICollectionViewCompositionalLayout을 사용해서 List Configuration을 구성하면 목록 형태의 레이아웃을 구현할 수 있음
+
 
 ## Cell 등록
 ### register로 등록
