@@ -57,3 +57,13 @@ let dataSource = UICollectionViewDiffableDataSource<Section, TodoLabel>(collecti
             return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: todo)
         }
 ```
+
+### TextField 그림자 넣기
+```swift
+textField.layer.masksToBounds = false
+textField.layer.shadowColor = UIColor.black.cgColor
+textField.layer.shadowOffset = CGSize(width: 0, height: 4)
+textField.layer.shadowRadius = 5
+textField.layer.shadowOpacity = 0.3
+```
+- textView는 이렇게 설정하면 그림자가 적용되었지만 textField는 되지 않았다.
