@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private let rpsEmoji = ["✊","✌️","🖐️"]
+    
     private let gameTitleLabel = {
         let label = UILabel()
         label.text = "묵찌빠 게임"
@@ -29,13 +31,13 @@ class ViewController: UIViewController {
     
     private let userEmoji = {
         let label = UILabel()
-        label.text = "✌️"
+        label.text = "✊"
         return label
     }()
     
     private let computerEmoji = {
         let label = UILabel()
-        label.text = "✋"
+        label.text = "✊"
         return label
     }()
     

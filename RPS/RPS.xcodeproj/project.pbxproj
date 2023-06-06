@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717B0B0F2A2F673F00538432 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717B0B0E2A2F673F00538432 /* GameItem.swift */; };
 		7187235129F4210000F210DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187235029F4210000F210DC /* AppDelegate.swift */; };
 		7187235329F4210000F210DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187235229F4210000F210DC /* SceneDelegate.swift */; };
 		7187235529F4210000F210DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7187235429F4210000F210DC /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		717B0B0E2A2F673F00538432 /* GameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		7187234D29F4210000F210DC /* RPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7187235029F4210000F210DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7187235229F4210000F210DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				7187235029F4210000F210DC /* AppDelegate.swift */,
 				7187235229F4210000F210DC /* SceneDelegate.swift */,
 				7187235429F4210000F210DC /* ViewController.swift */,
+				717B0B0E2A2F673F00538432 /* GameItem.swift */,
 				7187235929F4210100F210DC /* Assets.xcassets */,
 				7187235B29F4210100F210DC /* LaunchScreen.storyboard */,
 				7187235E29F4210100F210DC /* Info.plist */,
@@ -136,6 +139,7 @@
 			files = (
 				7187235529F4210000F210DC /* ViewController.swift in Sources */,
 				7187235129F4210000F210DC /* AppDelegate.swift in Sources */,
+				717B0B0F2A2F673F00538432 /* GameItem.swift in Sources */,
 				7187235329F4210000F210DC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
