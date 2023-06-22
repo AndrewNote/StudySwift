@@ -7,60 +7,65 @@
 
 import UIKit
 
-
-enum Section: CaseIterable {
+// enum은 모든 case, associated value가 Hashable을 준수하면 자동으로 synthesise 됨
+enum Section {
     case main
 }
 
 struct MenuLabel: Hashable {
+    let imageTitle: String
     let title: String
-    let content: String
+    let identifier = UUID()
 }
 
 class GameSelectionScreen: UIViewController {
+    private let data: [MenuLabel] = [MenuLabel(imageTitle: "⚾️", title: "숫자야구게임"), MenuLabel(imageTitle: "✊✌️🖐️", title: "묵찌빠게임")]
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, MenuLabel>?
-    private lazy var mainCollectionView = {
-        let collectionView = UICollectionView()
+    private let collectionView = {
+        let configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-    
-    // UICollectionViewFlowLayout 생성
-    
-    private let layout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        return layout
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureDataSoruce()
     }
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
 extension GameSelectionScreen {
     
-    private func setUpDataSource() {
-        let registration = UICollectionView.CellRegistration<MenuListCell, MenuLabel> { cell, IndexPath, menu in
-            
+    private func configureDataSoruce() {
+     
+        let cellRegistration = UICollectionView.CellRegistration<MenuListCell, MenuLabel> { (cell, indexPath, label) in
+            cell.configure(imageLabel: label.imageTitle, titleLabel: label.title)
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, MenuLabel>(collectionView: mainCollectionView) {
-            (collectionView, indexPath, menu) -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: menu)
-        }
+        dataSource = UICollectionViewDiffableDataSource<Section, MenuLabel>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        })
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, MenuLabel>()
         snapshot.appendSections([.main])
-        dataSource?.apply(snapshot, animatingDifferences: false)
+        snapshot.appendItems(data)
+        dataSource?.apply(snapshot, animatingDifferences: true)
     }
+    
 }
 
