@@ -19,7 +19,7 @@ struct MenuLabel: Hashable {
 }
 
 class GameSelectionScreen: UIViewController {
-    private let data: [MenuLabel] = [MenuLabel(imageTitle: "⚾️", title: "숫자야구게임"), MenuLabel(imageTitle: "✊✌️🖐️", title: "묵찌빠게임")]
+    private let data: [MenuLabel] = [MenuLabel(imageTitle: "⚾️", title: "숫자야구게임"), MenuLabel(imageTitle: "✊✌️🖐️", title: "묵찌빠게임"), MenuLabel(imageTitle: "🧪", title: "Test!")]
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, MenuLabel>?
     private let collectionView = {
@@ -34,11 +34,11 @@ class GameSelectionScreen: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureDataSoruce()
+        collectionView.delegate = self
     }
     
     private func configureUI() {
-        view.backgroundColor = .systemBackground
-        view.addSubview(collectionView)
+        view.backgroundColor = .systemBackgroundw        view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -66,6 +66,13 @@ extension GameSelectionScreen {
         snapshot.appendItems(data)
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
-    
 }
 
+extension GameSelectionScreen: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let vc = CalenderTest()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
