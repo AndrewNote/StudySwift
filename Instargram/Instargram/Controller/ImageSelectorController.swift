@@ -1,21 +1,23 @@
 //
-//  ViewController.swift
+//  ImageSelectorController.swift
 //  Instargram
 //
-//  Created by Andrew on 2023/06/25.
+//  Created by Andrew on 2023/06/26.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ImageSelectorController: UIViewController {
+    // MARK: Properties
+    
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
+    // MARK: Method
     private func configureUI() {
         view.backgroundColor = .systemBackground
     }
 }
-
