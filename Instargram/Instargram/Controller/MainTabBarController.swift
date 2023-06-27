@@ -22,6 +22,7 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = .systemBackground
     }
     
+    
     private func configureTabBarUI() {
         let feed = setTabBarItem(unSeletedImage: #imageLiteral(resourceName: "homeUnSeleted"), seletedImage: #imageLiteral(resourceName: "homeSeleted"), rootViewController: FeedController())
         let search = setTabBarItem(unSeletedImage: #imageLiteral(resourceName: "searchUnSeleted"), seletedImage: #imageLiteral(resourceName: "searchSeleted"), rootViewController: SearchController())
@@ -34,6 +35,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setTabBarItem(unSeletedImage: UIImage, seletedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
+        
         let item = UINavigationController(rootViewController: rootViewController)
         item.tabBarItem.image = unSeletedImage
         item.tabBarItem.selectedImage = seletedImage
