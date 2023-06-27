@@ -1,4 +1,4 @@
-# Study
+# Project List
 
-- 가위바위보
-- 숫자야구게임
+- [MiniGameHeaven(미니게임천국)](https://github.com/ChanHyuc/StudySwift/blob/main/MiniGameHeaven/README.md)
+- [Instargram](https://github.com/ChanHyuc/StudySwift/blob/main/Instargram/README.md)
