@@ -22,7 +22,6 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = .systemBackground
     }
     
-    
     private func configureTabBarUI() {
         let feed = setTabBarItem(unSeletedImage: #imageLiteral(resourceName: "homeUnSeleted"), seletedImage: #imageLiteral(resourceName: "homeSeleted"), rootViewController: FeedController())
         let search = setTabBarItem(unSeletedImage: #imageLiteral(resourceName: "searchUnSeleted"), seletedImage: #imageLiteral(resourceName: "searchSeleted"), rootViewController: SearchController())
