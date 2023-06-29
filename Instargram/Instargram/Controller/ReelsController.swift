@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationController: UIViewController {
+class ReelsController: UIViewController {
     // MARK: Properties
     
     // MARK: LifeCycle

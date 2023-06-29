@@ -10,7 +10,7 @@
 		7108C32A2A496B1C006F044A /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C3292A496B1C006F044A /* FeedController.swift */; };
 		7108C32C2A496B5A006F044A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C32B2A496B5A006F044A /* SearchController.swift */; };
 		7108C32E2A496B68006F044A /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C32D2A496B68006F044A /* ImageSelectorController.swift */; };
-		7108C3302A496B77006F044A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C32F2A496B77006F044A /* NotificationController.swift */; };
+		7108C3302A496B77006F044A /* ReelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C32F2A496B77006F044A /* ReelsController.swift */; };
 		7108C3322A496B7F006F044A /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C3312A496B7F006F044A /* ProfileController.swift */; };
 		7108C3342A496D44006F044A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108C3332A496D44006F044A /* MainTabBarController.swift */; };
 		7136A7992A4C0C0F005A98BB /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136A7982A4C0C0F005A98BB /* FeedCell.swift */; };
@@ -24,7 +24,7 @@
 		7108C3292A496B1C006F044A /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		7108C32B2A496B5A006F044A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		7108C32D2A496B68006F044A /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
-		7108C32F2A496B77006F044A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7108C32F2A496B77006F044A /* ReelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsController.swift; sourceTree = "<group>"; };
 		7108C3312A496B7F006F044A /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		7108C3332A496D44006F044A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7136A7982A4C0C0F005A98BB /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				7108C3292A496B1C006F044A /* FeedController.swift */,
 				7108C32B2A496B5A006F044A /* SearchController.swift */,
 				7108C32D2A496B68006F044A /* ImageSelectorController.swift */,
-				7108C32F2A496B77006F044A /* NotificationController.swift */,
+				7108C32F2A496B77006F044A /* ReelsController.swift */,
 				7108C3312A496B7F006F044A /* ProfileController.swift */,
 			);
 			path = Controller;
@@ -202,7 +202,7 @@
 			files = (
 				7108C32C2A496B5A006F044A /* SearchController.swift in Sources */,
 				71D57D5F2A4833D700C86199 /* AppDelegate.swift in Sources */,
-				7108C3302A496B77006F044A /* NotificationController.swift in Sources */,
+				7108C3302A496B77006F044A /* ReelsController.swift in Sources */,
 				71D57D612A4833D700C86199 /* SceneDelegate.swift in Sources */,
 				7108C32E2A496B68006F044A /* ImageSelectorController.swift in Sources */,
 				7108C32A2A496B1C006F044A /* FeedController.swift in Sources */,
