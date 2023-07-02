@@ -12,6 +12,8 @@ class LoginController: UIViewController {
     // MARK: - Properties
     private let logoImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "instagram")
         return imageView
     }()
     
@@ -22,7 +24,12 @@ class LoginController: UIViewController {
         textField.keyboardType = .emailAddress
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1
-        textField.layer.backgroundColor = UIColor.systemGray4.cgColor
+        textField.layer.backgroundColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 5
+        textField.layer.borderColor = UIColor.systemGray3.cgColor
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        textField.leftViewMode = .always
+        textField.tintColor = .black
         return textField
     }()
     
@@ -32,8 +39,12 @@ class LoginController: UIViewController {
         textField.isSecureTextEntry = true
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1
-        textField.layer.backgroundColor = UIColor.systemGray4.cgColor
-        textField.frame.size.height = 15
+        textField.layer.backgroundColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 5
+        textField.layer.borderColor = UIColor.systemGray3.cgColor
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        textField.leftViewMode = .always
+        textField.tintColor = .black
         return textField
     }()
     
@@ -42,24 +53,17 @@ class LoginController: UIViewController {
         button.backgroundColor = .blue
         button.setTitle("로그인", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 15
         return button
     }()
     
     private let lostPasswordButton = {
         let button = UIButton()
         button.setTitle("비밀번호를 잊으셨나요?", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
         return button
     }()
-    
-    private let registrationButton = {
-        let button = UIButton()
-        button.setTitle("새 계정 만들기", for: .normal)
-        button.setTitleColor(UIColor.systemBlue, for: .normal)
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemBlue.cgColor
-        return button
-    }()
-    
+        
     private let loginStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,8 +72,21 @@ class LoginController: UIViewController {
         return stackView
     }()
     
+    private let registrationButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("새 계정 만들기", for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     private let metaImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "meta")
         return imageView
     }()
     
@@ -83,23 +100,39 @@ class LoginController: UIViewController {
     // MARK: Method
     private func configureUI() {
         view.backgroundColor = .systemGray5
+        view.addSubview(logoImageView)
         view.addSubview(loginStackView)
+        view.addSubview(registrationButton)
+        view.addSubview(metaImageView)
         
         NSLayoutConstraint.activate([
-            loginStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            logoImageView.widthAnchor.constraint(equalToConstant: 64),
+            logoImageView.heightAnchor.constraint(equalToConstant: 64),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            loginStackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100),
             loginStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             loginStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            loginStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+            
+            registrationButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            registrationButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            registrationButton.bottomAnchor.constraint(equalTo: metaImageView.topAnchor, constant: -5),
+            
+            metaImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            metaImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            metaImageView.widthAnchor.constraint(equalToConstant: 98),
+            metaImageView.heightAnchor.constraint(equalToConstant: 46)
         ])
     }
     
     private func addStackView() {
-        loginStackView.addArrangedSubview(logoImageView)
         loginStackView.addArrangedSubview(emailTextField)
         loginStackView.addArrangedSubview(passwordTextField)
         loginStackView.addArrangedSubview(loginButton)
         loginStackView.addArrangedSubview(lostPasswordButton)
-        loginStackView.addArrangedSubview(registrationButton)
-        loginStackView.addArrangedSubview(metaImageView)
     }
 }
