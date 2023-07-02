@@ -79,14 +79,16 @@
 		71D57D5D2A4833D700C86199 /* Instargram */ = {
 			isa = PBXGroup;
 			children = (
+				71D57D5E2A4833D700C86199 /* AppDelegate.swift */,
+				71D57D602A4833D700C86199 /* SceneDelegate.swift */,
 				71D57D792A48362F00C86199 /* Model */,
 				71D57D782A48362D00C86199 /* View */,
 				71D57D772A48362B00C86199 /* ViewModel */,
 				71D57D762A48362900C86199 /* Controller */,
 				71D57D722A48357000C86199 /* API */,
-				71D57D7A2A48364500C86199 /* Utils */,
-				71D57D5E2A4833D700C86199 /* AppDelegate.swift */,
-				71D57D602A4833D700C86199 /* SceneDelegate.swift */,
+				71D57D7A2A48364500C86199 /* Utility */,
+				71EF6DCA2A51868900016919 /* Network */,
+				71EF6DC92A51866F00016919 /* Extension */,
 				71D57D672A4833D800C86199 /* Assets.xcassets */,
 				71D57D692A4833D800C86199 /* LaunchScreen.storyboard */,
 				71D57D6C2A4833D800C86199 /* Info.plist */,
@@ -137,11 +139,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		71D57D7A2A48364500C86199 /* Utils */ = {
+		71D57D7A2A48364500C86199 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Utils;
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		71EF6DC92A51866F00016919 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		71EF6DCA2A51868900016919 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
