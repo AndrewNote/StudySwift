@@ -20,6 +20,7 @@
 		71D57D612A4833D700C86199 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D57D602A4833D700C86199 /* SceneDelegate.swift */; };
 		71D57D682A4833D800C86199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71D57D672A4833D800C86199 /* Assets.xcassets */; };
 		71D57D6B2A4833D800C86199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D57D692A4833D800C86199 /* LaunchScreen.storyboard */; };
+		71E417332A52CA4C003777FE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E417322A52CA4C003777FE /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		71D57D672A4833D800C86199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71D57D6A2A4833D800C86199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71D57D6C2A4833D800C86199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71E417322A52CA4C003777FE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7136A7982A4C0C0F005A98BB /* FeedCell.swift */,
+				71E417322A52CA4C003777FE /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				7108C32A2A496B1C006F044A /* FeedController.swift in Sources */,
 				71588B772A500257006D5294 /* RegistrationController.swift in Sources */,
 				7108C3322A496B7F006F044A /* ProfileController.swift in Sources */,
+				71E417332A52CA4C003777FE /* CustomTextField.swift in Sources */,
 				7108C3342A496D44006F044A /* MainTabBarController.swift in Sources */,
 				7136A7992A4C0C0F005A98BB /* FeedCell.swift in Sources */,
 				71588B752A500247006D5294 /* LoginController.swift in Sources */,

@@ -17,36 +17,8 @@ class LoginController: UIViewController {
         return imageView
     }()
     
-    private let emailTextField = {
-        let textField = UITextField()
-        textField.placeholder = "사용자 이름, 이메일 주소 또는 휴대폰 번호"
-        textField.borderStyle = .none
-        textField.keyboardType = .emailAddress
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.backgroundColor = UIColor.white.cgColor
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.systemGray3.cgColor
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        textField.leftViewMode = .always
-        textField.tintColor = .black
-        return textField
-    }()
-    
-    private let passwordTextField = {
-        let textField = UITextField()
-        textField.placeholder = "비밀번호"
-        textField.isSecureTextEntry = true
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.backgroundColor = UIColor.white.cgColor
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.systemGray3.cgColor
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        textField.leftViewMode = .always
-        textField.tintColor = .black
-        return textField
-    }()
+    private let emailTextField = CustomTextField(placeholderText: "사용자 이름, 이메일 주소 또는 휴대폰 번호")
+    private let passwordTextField = CustomTextField(placeholderText: "비밀번호")
     
     private let loginButton = {
         let button = UIButton()
