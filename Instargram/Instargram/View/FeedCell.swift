@@ -19,11 +19,7 @@ class FeedCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let userName = {
-        let label = UILabel()
-        label.text = "UserName"
-        return label
-    }()
+    private let userName = CustomLabel(text: "UserName")
     
     private let moreButton = {
         let button = UIButton()
@@ -61,25 +57,9 @@ class FeedCell: UICollectionViewCell {
         return button
     }()
     
-    private let likeLabel = {
-        let label = UILabel()
-        label.text = "좋아요 930,411개"
-        return label
-    }()
-    
-    private let commentCountLabel = {
-        let label = UILabel()
-        label.textColor = .systemGray5
-        label.text = "댓글 69개 모두 보기"
-        return label
-    }()
-    
-    private let dateLabel = {
-        let label = UILabel()
-        label.textColor = .systemGray3
-        label.text = "6월 29일"
-        return label
-    }()
+    private let likeLabel = CustomLabel(text: "좋아요 930,411개")
+    private let commentCountLabel = CustomLabel(text: "댓글 69개 모두 보기", textColor: .systemGray5)
+    private let dateLabel = CustomLabel(text: "6월 29일", textColor: .systemGray3)
     
     private let profileStackView = {
         let stackView = UIStackView()
