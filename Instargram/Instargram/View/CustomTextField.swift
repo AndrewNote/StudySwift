@@ -8,17 +8,17 @@
 import UIKit
 
 class CustomTextField: UITextField {
-    init(placeholderText: String) {
+    init(placeholder: String) {
         super.init(frame: .zero)
-        placeholder = placeholderText
-        backgroundColor = .white
-        layer.borderWidth = 1
-        layer.backgroundColor = UIColor.white.cgColor
-        layer.cornerRadius = 5
-        layer.borderColor = UIColor.systemGray3.cgColor
-        leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        leftViewMode = .always
-        tintColor = .black
+        self.placeholder = placeholder
+        self.backgroundColor = .white
+        self.layer.borderWidth = 1
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.systemGray3.cgColor
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        self.leftViewMode = .always
+        self.tintColor = .black
     }
     
     required init?(coder: NSCoder) {
