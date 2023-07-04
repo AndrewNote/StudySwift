@@ -17,8 +17,8 @@ class LoginController: UIViewController {
         return imageView
     }()
     
-    private let emailTextField = CustomTextField(placeholderText: "사용자 이름, 이메일 주소 또는 휴대폰 번호")
-    private let passwordTextField = CustomTextField(placeholderText: "비밀번호")
+    private let emailTextField = CustomTextField(placeholder: "사용자 이름, 이메일 주소 또는 휴대폰 번호")
+    private let passwordTextField = CustomTextField(placeholder: "비밀번호")
     
     private let loginButton = {
         let button = UIButton()
