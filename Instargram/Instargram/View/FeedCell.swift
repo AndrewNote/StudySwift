@@ -14,7 +14,7 @@ class FeedCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 15
         imageView.backgroundColor = .purple
         return imageView
     }()
@@ -29,6 +29,7 @@ class FeedCell: UICollectionViewCell {
     
     private let postImage = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
         return imageView
     }()
@@ -63,6 +64,7 @@ class FeedCell: UICollectionViewCell {
     
     private let profileStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 10
         return stackView
@@ -70,12 +72,13 @@ class FeedCell: UICollectionViewCell {
     
     private let buttonStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 10
         return stackView
     }()
     
-    private let feedCellStackView = {
+    private let postBottomStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -95,15 +98,31 @@ class FeedCell: UICollectionViewCell {
     
     // MARK: Method
     private func configureUI() {
-        addSubview(feedCellStackView)
+        addSubview(profileStackView)
+        addSubview(postImage)
+        addSubview(buttonStackView)
+        addSubview(postBottomStackView)
         
         NSLayoutConstraint.activate([
-            postImage.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.2),
+            profileStackView.topAnchor.constraint(equalTo: topAnchor),
+            profileStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            profileStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-            feedCellStackView.topAnchor.constraint(equalTo: topAnchor),
-            feedCellStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            feedCellStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            feedCellStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            profileImage.widthAnchor.constraint(equalToConstant: 30),
+            profileImage.heightAnchor.constraint(equalToConstant: 30),
+            
+            postImage.topAnchor.constraint(equalTo: profileStackView.bottomAnchor, constant: 10),
+            postImage.widthAnchor.constraint(equalTo: widthAnchor),
+            postImage.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1.2),
+            postImage.bottomAnchor.constraint(equalTo: buttonStackView.topAnchor, constant: -10),
+            
+            buttonStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            buttonStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            
+            postBottomStackView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor,constant: 10),
+            postBottomStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            postBottomStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            postBottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
     
@@ -117,11 +136,8 @@ class FeedCell: UICollectionViewCell {
         buttonStackView.addArrangedSubview(shareButton)
         buttonStackView.addArrangedSubview(collectionButton)
         
-        feedCellStackView.addArrangedSubview(profileStackView)
-        feedCellStackView.addArrangedSubview(postImage)
-        feedCellStackView.addArrangedSubview(buttonStackView)
-        feedCellStackView.addArrangedSubview(likeLabel)
-        feedCellStackView.addArrangedSubview(commentCountLabel)
-        feedCellStackView.addArrangedSubview(dateLabel)
+        postBottomStackView.addArrangedSubview(likeLabel)
+        postBottomStackView.addArrangedSubview(commentCountLabel)
+        postBottomStackView.addArrangedSubview(dateLabel)
     }
 }
