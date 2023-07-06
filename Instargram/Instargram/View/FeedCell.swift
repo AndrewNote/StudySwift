@@ -18,46 +18,18 @@ class FeedCell: UICollectionViewCell {
         imageView.backgroundColor = .purple
         return imageView
     }()
-    
     private let userName = CustomLabel(text: "UserName")
-    
-    private let moreButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "more"), for: .normal)
-        return button
-    }()
-    
+    private let moreButton = CustomButton(imageName: "more")
     private let postImage = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
         return imageView
     }()
-    
-    private let likeButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "likeUnSeleted"), for: .normal)
-        return button
-    }()
-    
-    private let commentButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "comment"), for: .normal)
-        return button
-    }()
-    
-    private let shareButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "shared"), for: .normal)
-        return button
-    }()
-    
-    private let collectionButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "collection"), for: .normal)
-        return button
-    }()
-    
+    private let likeButton = CustomButton(imageName: "likeUnSeleted")
+    private let commentButton = CustomButton(imageName: "comment")
+    private let shareButton = CustomButton(imageName: "shared")
+    private let collectionButton = CustomButton(imageName: "collection")
     private let likeLabel = CustomLabel(text: "좋아요 930,411개")
     private let commentCountLabel = CustomLabel(text: "댓글 69개 모두 보기", textColor: .systemGray5)
     private let dateLabel = CustomLabel(text: "6월 29일", textColor: .systemGray3)
