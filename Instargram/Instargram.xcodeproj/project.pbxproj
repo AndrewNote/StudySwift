@@ -16,6 +16,7 @@
 		7136A7992A4C0C0F005A98BB /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7136A7982A4C0C0F005A98BB /* FeedCell.swift */; };
 		71588B752A500247006D5294 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71588B742A500247006D5294 /* LoginController.swift */; };
 		71588B772A500257006D5294 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71588B762A500257006D5294 /* RegistrationController.swift */; };
+		7158C7A22A568517000D04A0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158C7A12A568517000D04A0 /* CustomButton.swift */; };
 		7159B4D22A544A0200727A20 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159B4D12A544A0200727A20 /* CustomLabel.swift */; };
 		71D57D5F2A4833D700C86199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D57D5E2A4833D700C86199 /* AppDelegate.swift */; };
 		71D57D612A4833D700C86199 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D57D602A4833D700C86199 /* SceneDelegate.swift */; };
@@ -34,6 +35,7 @@
 		7136A7982A4C0C0F005A98BB /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		71588B742A500247006D5294 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		71588B762A500257006D5294 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		7158C7A12A568517000D04A0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7159B4D12A544A0200727A20 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		71D57D5B2A4833D700C86199 /* Instargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D57D5E2A4833D700C86199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7136A7982A4C0C0F005A98BB /* FeedCell.swift */,
+				7158C7A12A568517000D04A0 /* CustomButton.swift */,
 				7159B4D12A544A0200727A20 /* CustomLabel.swift */,
 				71E417322A52CA4C003777FE /* CustomTextField.swift */,
 			);
@@ -240,6 +243,7 @@
 				71D57D5F2A4833D700C86199 /* AppDelegate.swift in Sources */,
 				7108C3302A496B77006F044A /* ReelsController.swift in Sources */,
 				71D57D612A4833D700C86199 /* SceneDelegate.swift in Sources */,
+				7158C7A22A568517000D04A0 /* CustomButton.swift in Sources */,
 				7108C32E2A496B68006F044A /* ImageSelectorController.swift in Sources */,
 				7108C32A2A496B1C006F044A /* FeedController.swift in Sources */,
 				71588B772A500257006D5294 /* RegistrationController.swift in Sources */,
