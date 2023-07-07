@@ -36,12 +36,18 @@ class RegistrationController: UIViewController {
         addStackView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.backButtonTitle = ""
+        navigationItem.backBarButtonItem?.tintColor = .systemBackground
+    }
+    
     // MARK: Method
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.backBarButtonItem?.isHidden = true
-        navigationItem.backBarButtonItem?.tintColor = .systemBackground
         view.addSubview(stackView)
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.topItem?.title = ""
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
