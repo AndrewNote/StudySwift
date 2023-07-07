@@ -52,8 +52,13 @@ class LoginController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.systemBlue.cgColor
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(didTapregistrationButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func didTapregistrationButton() {
+        navigationController?.pushViewController(RegistrationController(), animated: true)
+    }
     
     private let metaImageView = {
         let imageView = UIImageView()
