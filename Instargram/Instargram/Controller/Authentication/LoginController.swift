@@ -10,6 +10,8 @@ import UIKit
 class LoginController: UIViewController {
     
     // MARK: - Properties
+    private var viewModel = LoginViewModel()
+    
     private let logoImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +74,7 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         configureUI()
         addStackView()
+        notificationObservers()
     }
     
     // MARK: Method
@@ -112,4 +115,19 @@ class LoginController: UIViewController {
         loginStackView.addArrangedSubview(loginButton)
         loginStackView.addArrangedSubview(lostPasswordButton)
     }
+    
+    private func notificationObservers() {
+        emailTextField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
+    }
+    
+    @objc private func didChangeText(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+//        sender == emailTextField ? viewModel.email = sender.text : viewModel.password = sender.text
+    }
+    
 }
