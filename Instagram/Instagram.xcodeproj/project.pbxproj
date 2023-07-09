@@ -39,7 +39,7 @@
 		7158C7A12A568517000D04A0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7159B4D12A544A0200727A20 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		71C175F02A59836900DE7047 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		71D57D5B2A4833D700C86199 /* Instargram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instargram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D57D5B2A4833D700C86199 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D57D5E2A4833D700C86199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71D57D602A4833D700C86199 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71D57D672A4833D800C86199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		71D57D5C2A4833D700C86199 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71D57D5B2A4833D700C86199 /* Instargram.app */,
+				71D57D5B2A4833D700C86199 /* Instagram.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,7 +101,8 @@
 				71D57D692A4833D800C86199 /* LaunchScreen.storyboard */,
 				71D57D6C2A4833D800C86199 /* Info.plist */,
 			);
-			path = Instargram;
+			name = Instargram;
+			path = Instagram;
 			sourceTree = "<group>";
 		};
 		71D57D722A48357000C86199 /* API */ = {
@@ -175,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71D57D5A2A4833D700C86199 /* Instargram */ = {
+		71D57D5A2A4833D700C86199 /* Instagram */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71D57D6F2A4833D800C86199 /* Build configuration list for PBXNativeTarget "Instargram" */;
+			buildConfigurationList = 71D57D6F2A4833D800C86199 /* Build configuration list for PBXNativeTarget "Instagram" */;
 			buildPhases = (
 				71D57D572A4833D700C86199 /* Sources */,
 				71D57D582A4833D700C86199 /* Frameworks */,
@@ -187,9 +188,9 @@
 			);
 			dependencies = (
 			);
-			name = Instargram;
+			name = Instagram;
 			productName = Instargram;
-			productReference = 71D57D5B2A4833D700C86199 /* Instargram.app */;
+			productReference = 71D57D5B2A4833D700C86199 /* Instagram.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71D57D562A4833D700C86199 /* Build configuration list for PBXProject "Instargram" */;
+			buildConfigurationList = 71D57D562A4833D700C86199 /* Build configuration list for PBXProject "Instagram" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,7 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71D57D5A2A4833D700C86199 /* Instargram */,
+				71D57D5A2A4833D700C86199 /* Instagram */,
 			);
 		};
 /* End PBXProject section */
@@ -396,7 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Instargram/Info.plist;
+				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -406,7 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Instargram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Instargram/Info.plist;
+				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -432,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Instargram;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -443,7 +444,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71D57D562A4833D700C86199 /* Build configuration list for PBXProject "Instargram" */ = {
+		71D57D562A4833D700C86199 /* Build configuration list for PBXProject "Instagram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71D57D6D2A4833D800C86199 /* Debug */,
@@ -452,7 +453,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71D57D6F2A4833D800C86199 /* Build configuration list for PBXNativeTarget "Instargram" */ = {
+		71D57D6F2A4833D800C86199 /* Build configuration list for PBXNativeTarget "Instagram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71D57D702A4833D800C86199 /* Debug */,

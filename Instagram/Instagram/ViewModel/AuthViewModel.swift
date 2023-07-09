@@ -16,5 +16,9 @@ struct LoginViewModel {
 }
 
 struct RegistrationViewModel {
-    
+    var email: String?
+    var password: String?
+    var userName: String?
+    var fullName: String?
+//    var birthDay
 }

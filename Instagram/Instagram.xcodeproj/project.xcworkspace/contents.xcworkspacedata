@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/chanhyuk/Desktop/StudySwift/Instargram/Instagram.xcodeproj">
    </FileRef>
 </Workspace>
