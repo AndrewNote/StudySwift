@@ -31,6 +31,7 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        collectionView.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView")
     }
     
     // MARK: Method
@@ -53,6 +54,11 @@ extension ProfileController {
         let section = NSCollectionLayoutSection(group: group)
 
         let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
         return layout
     }
     
@@ -65,6 +71,17 @@ extension ProfileController {
         dataSoruce = UICollectionViewDiffableDataSource<Section, ProfileItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
+        
+        let headerRegistration = UICollectionView.SupplementaryRegistration(elementKind: UICollectionView.elementKindSectionHeader) { headerView, elementKind, indexPath in
+            
+        }
+        
+        dataSoruce?.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath) as? ProfileHeaderView else {
+                return UICollectionReusableView()
+            }
+            return header
+        }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, ProfileItem>()
         snapshot.appendSections([.main])
