@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		711F3E3F2A623F7200CF7B77 /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711F3E3E2A623F7200CF7B77 /* LandmarkRow.swift */; };
+		711F3E412A62434F00CF7B77 /* LansmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711F3E402A62434F00CF7B77 /* LansmarkList.swift */; };
 		7130E5182A56A3C200133A70 /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130E5172A56A3C200133A70 /* LandmarksApp.swift */; };
 		7130E51A2A56A3C200133A70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7130E5192A56A3C200133A70 /* ContentView.swift */; };
 		7130E51C2A56A3C300133A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7130E51B2A56A3C300133A70 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		711F3E3E2A623F7200CF7B77 /* LandmarkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRow.swift; sourceTree = "<group>"; };
+		711F3E402A62434F00CF7B77 /* LansmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LansmarkList.swift; sourceTree = "<group>"; };
 		7130E5142A56A3C200133A70 /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7130E5172A56A3C200133A70 /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		7130E5192A56A3C200133A70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				7154EB902A5C0C420037F194 /* CircleImage.swift */,
 				7154EB922A5C0D0D0037F194 /* MapView.swift */,
 				711F3E3E2A623F7200CF7B77 /* LandmarkRow.swift */,
+				711F3E402A62434F00CF7B77 /* LansmarkList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				7130E51A2A56A3C200133A70 /* ContentView.swift in Sources */,
 				7154EB932A5C0D0D0037F194 /* MapView.swift in Sources */,
+				711F3E412A62434F00CF7B77 /* LansmarkList.swift in Sources */,
 				7130E5182A56A3C200133A70 /* LandmarksApp.swift in Sources */,
 				7154EB912A5C0C420037F194 /* CircleImage.swift in Sources */,
 				7154EB972A5C148B0037F194 /* Landmark.swift in Sources */,
