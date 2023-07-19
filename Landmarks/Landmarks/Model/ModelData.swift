@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+final class ModelData: ObservableObject {
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+}
 
 let landmarks: [Landmark] = load("landmarkData.json")
 
