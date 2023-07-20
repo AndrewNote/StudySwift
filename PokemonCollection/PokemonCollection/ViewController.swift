@@ -7,13 +7,15 @@
 
 import UIKit
 
+let reusableIdentifier = "pokemonCell"
+
 class ViewController: UIViewController {
     
     // MARK: Properties
     private let collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: reusableIdentifier)
         return collectionView
     }()
     
@@ -21,6 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+        collectionView.delegate = self
         configureNavigation()
         configureUI()
     }
@@ -55,17 +58,30 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: DataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 99
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as? PokemonCell else {
+            return UICollectionViewCell()
+        }
         cell.backgroundColor = .red
         return cell
     }
-    
-    
 }
 
+// MARK: DelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let length = (view.frame.width - 36) / 3
+        return CGSize(width: length, height: length)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
+    }
+    
+}
