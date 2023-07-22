@@ -12,6 +12,8 @@ let reusableIdentifier = "pokemonCell"
 class ViewController: UIViewController {
     
     // MARK: Properties
+    private let pokemonService = PokemonService()
+    
     private let collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         configureNavigation()
         configureUI()
+        pokemonService.fetchPokemons()
     }
     
     // MARK: Method
