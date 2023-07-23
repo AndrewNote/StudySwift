@@ -7,10 +7,15 @@
 
 import Foundation
 
-// HTTP 통신을 하기 위해서는 URL이 필요
+protocol PokemonServiceProtocol {
+    func pokemonService(pokemons: PokemonListResponse)
+}
 
+// HTTP 통신을 하기 위해서는 URL이 필요
 class PokemonService {
-    let url = "https://pokeapi.co/api/v2/pokemon/"
+    let url = "https://pokeapi.co/api/v2/pokemon?limit=150"
+    let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    var delegate: PokemonServiceProtocol?
     
     func fetchPokemons() {
         if let url = URL(string: url) {
@@ -21,7 +26,7 @@ class PokemonService {
                     if let data = data {
                         do {
                             let pokemons = try JSONDecoder().decode(PokemonListResponse.self, from: data)
-                            print(pokemons)
+                            self.delegate?.pokemonService(pokemons: pokemons)    // self check
                         } catch let error {
                             print(error.localizedDescription)
                         }
