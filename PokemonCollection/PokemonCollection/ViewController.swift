@@ -9,10 +9,17 @@ import UIKit
 
 let reusableIdentifier = "pokemonCell"
 
+extension ViewController: PokemonServiceProtocol {
+    func pokemonService(pokemons: PokemonListResponse) {
+        self.pokemons = pokemons.results
+    }
+}
+
 class ViewController: UIViewController {
     
     // MARK: Properties
     private let pokemonService = PokemonService()
+    private var pokemons = [Pokemon]()
     
     private let collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -26,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        pokemonService.delegate = self      // Check
         configureNavigation()
         configureUI()
         pokemonService.fetchPokemons()
@@ -64,14 +72,15 @@ class ViewController: UIViewController {
 // MARK: DataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 99
+        return pokemons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as? PokemonCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .red
+        let data = pokemons[indexPath.row]
+        cell.sendData(name: data.name)
         return cell
     }
 }
