@@ -14,7 +14,6 @@ protocol PokemonServiceProtocol {
 // HTTP 통신을 하기 위해서는 URL이 필요
 class PokemonService {
     let url = "https://pokeapi.co/api/v2/pokemon?limit=150"
-    let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
     var delegate: PokemonServiceProtocol?
     
     func fetchPokemons() {
