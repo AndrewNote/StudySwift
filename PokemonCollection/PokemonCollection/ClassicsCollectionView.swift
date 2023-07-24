@@ -9,13 +9,13 @@ import UIKit
 
 let reusableIdentifier = "pokemonCell"
 
-extension ViewController: PokemonServiceProtocol {
+extension ClassicsCollectionView: PokemonServiceProtocol {
     func pokemonService(pokemons: PokemonListResponse) {
         self.pokemons = pokemons.results
     }
 }
 
-class ViewController: UIViewController {
+class ClassicsCollectionView: UIViewController {
     
     // MARK: Properties
     private let pokemonService = PokemonService()
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: DataSource
-extension ViewController: UICollectionViewDataSource {
+extension ClassicsCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemons.count
     }
@@ -89,7 +89,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 // MARK: DelegateFlowLayout
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension ClassicsCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let length = (view.frame.width - 36) / 3
         return CGSize(width: length, height: length)
