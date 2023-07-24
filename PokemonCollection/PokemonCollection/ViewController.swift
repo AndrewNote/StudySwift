@@ -81,6 +81,9 @@ extension ViewController: UICollectionViewDataSource {
         }
         let data = pokemons[indexPath.row]
         cell.sendData(name: data.name)
+        if let imageUrl = cell.imageURL(for: indexPath.row + 1) {
+            cell.configureImage(with: imageUrl)
+        }
         return cell
     }
 }
