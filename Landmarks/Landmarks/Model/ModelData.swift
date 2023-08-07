@@ -12,6 +12,10 @@ final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
     
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
+    
     var categories: [String: [Landmark]] {
         Dictionary(
             grouping: landmarks, by: { $0.category.rawValue }
@@ -19,9 +23,7 @@ final class ModelData: ObservableObject {
     }
 }
 
-let landmarks: [Landmark] = load("landmarkData.json")
-
-private func load<T: Decodable>(_ filename: String) -> T {
+func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
