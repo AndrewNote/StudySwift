@@ -20,7 +20,7 @@ class ClassicsCollectionView: UIViewController {
     // MARK: Properties
     private let pokemonService = PokemonService()
     private var pokemons = [Pokemon]()
-    
+    private let infoView = InfoView()
     private let collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,12 +54,18 @@ class ClassicsCollectionView: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
+        view.addSubview(infoView)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -55),
+            infoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
+            infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
         ])
     }
     
