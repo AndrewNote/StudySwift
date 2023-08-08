@@ -8,10 +8,17 @@
 import UIKit
 
 class PokemonCell: UICollectionViewCell {
-        
-    private var idNumber = 1
     
     // MARK: Properties
+    private var idNumber = 1
+    private let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapCell))
+
+    @objc private func didTapCell(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.began {
+            
+        }
+    }
+    
     private let pokemonImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
