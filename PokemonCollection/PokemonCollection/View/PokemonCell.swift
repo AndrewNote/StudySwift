@@ -7,15 +7,21 @@
 
 import UIKit
 
+protocol PokemonCellProtocol {
+    func showPopup(pokemon: Pokemon)
+}
+
 class PokemonCell: UICollectionViewCell {
     
     // MARK: Properties
     private var idNumber = 1
     private let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapCell))
+    private let delegate: PokemonCellProtocol?
 
     @objc private func didTapCell(sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizer.State.began {
-            
+//            guard let pokemon = self.pokemonNa else { return }
+            delegate?.showPopup(pokemon: pokemon)
         }
     }
     

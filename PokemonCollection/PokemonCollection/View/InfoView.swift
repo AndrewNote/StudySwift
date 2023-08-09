@@ -14,8 +14,18 @@ class InfoView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.backgroundColor = .systemYellow
+        label.textAlignment = .center
         label.text = "NAME"
         return label
+    }()
+    
+    private let detailViewButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemYellow
+        button.setTitle("상세 보기", for: .normal)
+        return button
     }()
     
     // MARK: LifeCycle
@@ -31,7 +41,20 @@ class InfoView: UIView {
     
     // MARK: Method
     private func configureUI() {
+        addSubview(nameLabel)
+        addSubview(detailViewButton)
         
+        NSLayoutConstraint.activate([
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
+            nameLabel.heightAnchor.constraint(equalToConstant: 50),
+            
+            detailViewButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            detailViewButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            detailViewButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
+            detailViewButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
     private func settingCell() {
