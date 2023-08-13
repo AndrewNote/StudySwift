@@ -39,8 +39,14 @@ struct Home: View {
                         .foregroundColor(Color("peach"))
                         .frame(width: 32, height: 32)
                 }
-                    
+                .padding([.leading, .bottom], 12)
+                .padding([.top, .trailing])
             }
+            .frame(height: 150)
+            .background(Color.primary.colorInvert())
+            .cornerRadius(6)
+            .shadow(color: Color.primary.opacity(0.33), radius: 1, x: 2, y: 2)
+            .padding(.vertical, 8)
             
         }
         
