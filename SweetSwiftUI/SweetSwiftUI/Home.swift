@@ -26,8 +26,18 @@ struct Home: View {
                     .font(.footnote)
                     .foregroundColor(.secondary)
                 
-                HStack {    // 가격정보, 버튼
-                    
+                HStack(spacing: 0) {    // 가격정보, 버튼
+                    Text("₩").font(.footnote)
+                    Text("2100").font(.headline)
+                    Spacer()
+                    Image(systemName: "heart")
+                        .imageScale(.large)
+                        .foregroundColor(Color("peach"))
+                        // 에셋에 포함해 둔 peach 사용
+                        .frame(width: 32, height: 32)
+                    Image(systemName: "cart")
+                        .foregroundColor(Color("peach"))
+                        .frame(width: 32, height: 32)
                 }
                     
             }
