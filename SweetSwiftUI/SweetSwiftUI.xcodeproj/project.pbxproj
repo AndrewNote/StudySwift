@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		718EA4072A88B1C900C923A3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EA4062A88B1C900C923A3 /* Home.swift */; };
 		71B9265C2A84D889003DCAC4 /* SweetSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B9265B2A84D889003DCAC4 /* SweetSwiftUIApp.swift */; };
 		71B9265E2A84D889003DCAC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B9265D2A84D889003DCAC4 /* ContentView.swift */; };
 		71B926602A84D88A003DCAC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B9265F2A84D88A003DCAC4 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		718EA4062A88B1C900C923A3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		71B926582A84D889003DCAC4 /* SweetSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B9265B2A84D889003DCAC4 /* SweetSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetSwiftUIApp.swift; sourceTree = "<group>"; };
 		71B9265D2A84D889003DCAC4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				71B9265B2A84D889003DCAC4 /* SweetSwiftUIApp.swift */,
 				71B9265D2A84D889003DCAC4 /* ContentView.swift */,
+				718EA4062A88B1C900C923A3 /* Home.swift */,
 				71B9266D2A84D91A003DCAC4 /* TextExample.swift */,
 				71B9265F2A84D88A003DCAC4 /* Assets.xcassets */,
 				71B926612A84D88A003DCAC4 /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				71B9265E2A84D889003DCAC4 /* ContentView.swift in Sources */,
 				71B9266E2A84D91A003DCAC4 /* TextExample.swift in Sources */,
+				718EA4072A88B1C900C923A3 /* Home.swift in Sources */,
 				71B9265C2A84D889003DCAC4 /* SweetSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
