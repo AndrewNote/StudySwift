@@ -9,6 +9,16 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
+        VStack {
+            ExtractedView()
+        }
+        
+        
+    }
+}
+
+struct ExtractedView: View {
+    var body: some View {
         HStack {    // 상품 이미지
             Image("apple")
                 .resizable()
@@ -33,7 +43,7 @@ struct Home: View {
                     Image(systemName: "heart")
                         .imageScale(.large)
                         .foregroundColor(Color("peach"))
-                        // 에셋에 포함해 둔 peach 사용
+                    // 에셋에 포함해 둔 peach 사용
                         .frame(width: 32, height: 32)
                     Image(systemName: "cart")
                         .foregroundColor(Color("peach"))
@@ -49,8 +59,6 @@ struct Home: View {
             .padding(.vertical, 8)
             
         }
-        
-        
     }
 }
 
