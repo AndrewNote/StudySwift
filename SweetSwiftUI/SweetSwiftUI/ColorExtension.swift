@@ -8,8 +8,10 @@
 import SwiftUI
 
 extension Color {
-    static let path = Color("peach")    // 앱 메인색
+    static let peach = Color("peach")    // 앱 메인색
     static let primaryShadow = Color.primary.opacity(0.2)   // 그림자에 사용할 색
+    static let secondaryText = Color(hex: "#6e6e6e")
+    static let background = Color(UIColor.systemGray6)
     
     init(hex: String) {
         let scanner = Scanner(string: hex)

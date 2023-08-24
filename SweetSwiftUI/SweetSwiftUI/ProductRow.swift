@@ -34,7 +34,7 @@ struct ProductRow: View {
             
             Text("달콤한 맛이 좋은 과일의 여왕 사과. 독은 없고 꿀만 가득해요!")
                 .font(.footnote)
-                .foregroundColor(.secondary)
+                .foregroundColor(Color.secondary)
             
             Spacer()
             footerView
@@ -51,7 +51,7 @@ struct ProductRow: View {
             Spacer()
             Image(systemName: "heart")
                 .imageScale(.large)
-                .foregroundColor(Color("peach"))
+                .foregroundColor(Color.peach)
             // 에셋에 포함해 둔 peach 사용
                 .frame(width: 32, height: 32)
             Image(systemName: "cart")
