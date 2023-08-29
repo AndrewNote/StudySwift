@@ -73,6 +73,14 @@ class ClassicsCollectionView: UIViewController {
     @objc private func didTapRightButton() {
         
     }
+    
+    private func removeInfoViewAnimation() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.infoView.alpha = 0
+            self.infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        })
+    }
+    
 }
 
 // MARK: DataSource

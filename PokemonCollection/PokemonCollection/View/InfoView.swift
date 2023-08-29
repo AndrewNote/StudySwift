@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol InfoViewProtocol {
+    func removeInfoView()
+}
+
 class InfoView: UIView {
+    
+    var delegate: InfoViewProtocol?
     
     // MARK: Properties
     private let nameLabel = {
@@ -27,6 +33,10 @@ class InfoView: UIView {
         button.setTitle("상세 보기", for: .normal)
         return button
     }()
+    
+    private func didTabDetailViewButton() {
+        delegate?.removeInfoView()
+    }
     
     // MARK: LifeCycle
     override init(frame: CGRect) {
