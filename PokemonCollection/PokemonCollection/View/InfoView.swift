@@ -12,7 +12,6 @@ protocol InfoViewProtocol {
 }
 
 class InfoView: UIView {
-    
     var delegate: InfoViewProtocol?
     
     // MARK: Properties
@@ -31,10 +30,11 @@ class InfoView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemYellow
         button.setTitle("상세 보기", for: .normal)
+        button.addTarget(self, action: #selector(didTabDetailViewButton), for: .touchUpInside)
         return button
     }()
     
-    private func didTabDetailViewButton() {
+    @objc private func didTabDetailViewButton() {
         delegate?.removeInfoView()
     }
     

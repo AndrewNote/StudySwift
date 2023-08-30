@@ -44,6 +44,7 @@ class ClassicsCollectionView: UIViewController {
         configureNavigation()
         configureUI()
         pokemonService.fetchPokemons()
+        blurEffect()
     }
     
     // MARK: Method
@@ -70,16 +71,19 @@ class ClassicsCollectionView: UIViewController {
         ])
     }
     
+    private func blurEffect() {
+        let blurViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapBackground) )
+        blurView.addGestureRecognizer(blurViewTapGestureRecognizer)
+    }
+    
     // MARK: Selector
     @objc private func didTapRightButton() {
         
     }
     
-    private func removeInfoViewAnimation() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.infoView.alpha = 0
-            self.infoView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        })
+    @objc private func didTapBackground() {
+        infoView.removeFromSuperview()
+        blurView.alpha = 0
     }
     
 }
@@ -118,7 +122,7 @@ extension ClassicsCollectionView: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension ClassicsCollectionView: PokemonCellProtocol {
+extension ClassicsCollectionView: PokemonCellProtocol, InfoViewProtocol {
     func showPopup(pokemon: UIImageView) {
         view.addSubview(blurView)
         view.addSubview(infoView)
@@ -135,6 +139,13 @@ extension ClassicsCollectionView: PokemonCellProtocol {
             infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
         ])
         
+        infoView.delegate = self
         
     }
+    
+    func removeInfoView() {
+        infoView.removeFromSuperview()
+        blurView.alpha = 0
+    }
+    
 }
