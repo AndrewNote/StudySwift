@@ -54,18 +54,14 @@ class ClassicsCollectionView: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
-        view.addSubview(infoView)
-        
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
-            infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -55),
-            infoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
-            infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+
         ])
     }
     
@@ -98,6 +94,8 @@ extension ClassicsCollectionView: UICollectionViewDataSource {
         if let imageUrl = cell.imageURL(for: indexPath.row + 1) {
             cell.configureImage(with: imageUrl)
         }
+        
+        cell.delegate = self
         return cell
     }
 }
@@ -113,4 +111,17 @@ extension ClassicsCollectionView: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 32, left: 8, bottom: 8, right: 8)
     }
     
+}
+
+extension ClassicsCollectionView: PokemonCellProtocol {
+    func showPopup(pokemon: UIImageView) {
+        view.addSubview(infoView)
+        NSLayoutConstraint.activate([
+            infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            infoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
+            infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+        ])
+        
+    }
 }

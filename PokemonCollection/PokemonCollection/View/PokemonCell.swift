@@ -8,23 +8,13 @@
 import UIKit
 
 protocol PokemonCellProtocol {
-    func showPopup(pokemon: Pokemon)
+    func showPopup(pokemon: UIImageView)
 }
 
 class PokemonCell: UICollectionViewCell {
-    
     // MARK: Properties
     private var idNumber = 1
-    private let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapCell))
-    private let delegate: PokemonCellProtocol?
-
-    @objc private func didTapCell(sender: UILongPressGestureRecognizer) {
-        if sender.state == UIGestureRecognizer.State.began {
-//            guard let pokemon = self.pokemonNa else { return }
-            delegate?.showPopup(pokemon: pokemon)
-        }
-    }
-    
+    var delegate: PokemonCellProtocol?
     private let pokemonImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +33,7 @@ class PokemonCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureUI()
+        eventCell()
     }
     
     required init?(coder: NSCoder) {
@@ -67,6 +58,11 @@ class PokemonCell: UICollectionViewCell {
         self.layer.masksToBounds = true
     }
     
+    private func eventCell() {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapCell) )
+        self.addGestureRecognizer(longPressRecognizer)
+    }
+
     func sendData(name: String) {
         pokemonNameLabel.text = name
     }
@@ -77,6 +73,13 @@ class PokemonCell: UICollectionViewCell {
     
     func imageURL(for idNumber: Int) -> URL? {
         return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(idNumber).png")
+    }
+    
+    // MARK: Selector
+    @objc private func didTapCell(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.began {
+            delegate?.showPopup(pokemon: self.pokemonImageView)
+        }
     }
     
 }
