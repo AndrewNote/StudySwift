@@ -28,6 +28,13 @@ class ClassicsCollectionView: UIViewController {
         return collectionView
     }()
     
+    private let blurView: UIVisualEffectView = {
+        let bluerEffect = UIBlurEffect(style: .dark)
+        let bluerEffectView = UIVisualEffectView(effect: bluerEffect)
+        bluerEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return bluerEffectView
+    }()
+    
     // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +67,6 @@ class ClassicsCollectionView: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
-
         ])
     }
     
@@ -115,13 +120,21 @@ extension ClassicsCollectionView: UICollectionViewDelegateFlowLayout {
 
 extension ClassicsCollectionView: PokemonCellProtocol {
     func showPopup(pokemon: UIImageView) {
+        view.addSubview(blurView)
         view.addSubview(infoView)
+
         NSLayoutConstraint.activate([
+            blurView.topAnchor.constraint(equalTo: view.topAnchor),
+            blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             infoView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             infoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
-            infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+            infoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
         ])
+        
         
     }
 }
