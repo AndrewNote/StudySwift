@@ -19,7 +19,11 @@ class ClassicsCollectionView: UIViewController {
     
     // MARK: Properties
     private let pokemonService = PokemonService()
-    private var pokemons = [Pokemon]()
+    private var pokemons = [Pokemon]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private let infoView = InfoView()
     private let collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -99,7 +103,7 @@ extension ClassicsCollectionView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let data = pokemons[indexPath.row]
-        cell.sendData(name: data.name)
+        cell.pokemon = data
         if let imageUrl = cell.imageURL(for: indexPath.row + 1) {
             cell.configureImage(with: imageUrl)
         }
@@ -123,7 +127,7 @@ extension ClassicsCollectionView: UICollectionViewDelegateFlowLayout {
 }
 
 extension ClassicsCollectionView: PokemonCellProtocol, InfoViewProtocol {
-    func showPopup(pokemon: UIImageView) {
+    func showPopup(pokemon: Pokemon) {
         view.addSubview(blurView)
         view.addSubview(infoView)
 
@@ -140,7 +144,7 @@ extension ClassicsCollectionView: PokemonCellProtocol, InfoViewProtocol {
         ])
         
         infoView.delegate = self
-        
+        infoView.pokemon = pokemon
     }
     
     func removeInfoView() {

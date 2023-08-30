@@ -13,6 +13,11 @@ protocol InfoViewProtocol {
 
 class InfoView: UIView {
     var delegate: InfoViewProtocol?
+    var pokemon: Pokemon? {
+        didSet {
+            configurePokemon()
+        }
+    }
     
     // MARK: Properties
     private let nameLabel = {
@@ -21,7 +26,6 @@ class InfoView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.backgroundColor = .systemYellow
         label.textAlignment = .center
-        label.text = "NAME"
         return label
     }()
     
@@ -72,5 +76,10 @@ class InfoView: UIView {
         self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
+    }
+    
+    private func configurePokemon() {
+        guard let pokemon = pokemon else { return }
+        nameLabel.text = pokemon.name
     }
 }

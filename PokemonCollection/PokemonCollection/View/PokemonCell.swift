@@ -8,11 +8,18 @@
 import UIKit
 
 protocol PokemonCellProtocol {
-    func showPopup(pokemon: UIImageView)
+    func showPopup(pokemon: Pokemon)
 }
 
 class PokemonCell: UICollectionViewCell {
     // MARK: Properties
+    var pokemon: Pokemon? {
+        didSet {
+            guard let pokemon = self.pokemon else { return }
+            pokemonNameLabel.text = pokemon.name
+        }
+    }
+    
     private var idNumber = 1
     var delegate: PokemonCellProtocol?
     private let pokemonImageView = {
@@ -62,10 +69,6 @@ class PokemonCell: UICollectionViewCell {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapCell) )
         self.addGestureRecognizer(longPressRecognizer)
     }
-
-    func sendData(name: String) {
-        pokemonNameLabel.text = name
-    }
     
     func configureImage(with imageUrl: URL) {
         pokemonImageView.load(url: imageUrl)
@@ -78,7 +81,8 @@ class PokemonCell: UICollectionViewCell {
     // MARK: Selector
     @objc private func didTapCell(sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizer.State.began {
-            delegate?.showPopup(pokemon: self.pokemonImageView)
+            guard let pokemon = pokemon else { return }
+            delegate?.showPopup(pokemon: pokemon)
         }
     }
     
