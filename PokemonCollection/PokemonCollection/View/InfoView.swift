@@ -29,6 +29,30 @@ class InfoView: UIView {
         return label
     }()
     
+    private let imageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let weightLabel = {
+        let label = UILabel()
+        label.text = "Weight : "
+        return label
+    }()
+    
+    private let heightLabel = {
+        let label = UILabel()
+        label.text = "Height : "
+        return label
+    }()
+    
+    private let typeLabel = {
+        let label = UILabel()
+        label.text = "Type : "
+        return label
+    }()
+    
     private let detailViewButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -81,5 +105,6 @@ class InfoView: UIView {
     private func configurePokemon() {
         guard let pokemon = pokemon else { return }
         nameLabel.text = pokemon.name
+        
     }
 }
