@@ -7,7 +7,18 @@
 
 import UIKit
 
+enum Section {
+    case main
+}
+
+struct PokemonItem: Hashable {
+    let name: String
+    let imageView: String
+}
+
 class ModernCollectionView: UIViewController {
+    
+    private var dataSource: UICollectionViewDiffableDataSource<Section, PokemonItem>?
     
     // MARK: Properties
     private let collectionView = {
@@ -33,5 +44,11 @@ class ModernCollectionView: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func setUpDataSource() {
+        dataSource = UICollectionViewDiffableDataSource(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        })
     }
 }
