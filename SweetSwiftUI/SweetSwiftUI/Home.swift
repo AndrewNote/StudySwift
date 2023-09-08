@@ -14,27 +14,6 @@ struct Home: View {
             ProductRow(product: productSamples[1])
             ProductRow(product: productSamples[2])
         }
-        
-        
-    }
-}
-
-struct ExtractedView: View {
-    var body: some View {
-        HStack {    // 상품 이미지
-            Image("apple")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 140)
-                .clipped()
-            
-            .frame(height: 150)
-            .background(Color.primary.colorInvert())
-            .cornerRadius(6)
-            .shadow(color: Color.primary.opacity(0.33), radius: 1, x: 2, y: 2)
-            .padding(.vertical, 8)
-            
-        }
     }
 }
 
