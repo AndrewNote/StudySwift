@@ -11,7 +11,8 @@ var body: some View {
 - body 프로퍼티에 연속적으로 텍스트를 작성하면 ~~컴파일 오류가 발생하는데 이는 프로퍼티에는 반드시 하나의 값만 반환해야 하기 때문~~
 
 ### Horizontal Stack(HStack)
-![](https://velog.velcdn.com/images/whk1140/post/c33308d5-fa61-4300-a095-163c55a2e949/image.png)
+<img width="252" alt="HStack" src="https://github.com/ChanHyuc/StudySwift/assets/121753386/7416a08e-409b-49fc-9c23-2fb19785b65f">
+
 ```swift
 HStack {
     Rectangle()
@@ -26,7 +27,8 @@ HStack {
 }
 ```
 ### Vertical Stack(VStack)
-![](https://velog.velcdn.com/images/whk1140/post/1630f167-bed2-4b70-9e6b-7b5761a5f135/image.png)
+<img width="110" alt="VStack" src="https://github.com/ChanHyuc/StudySwift/assets/121753386/0bdb1172-918c-4231-94f5-7042edf2f525">
+
 ```swift
 VStack {
     Rectangle()
@@ -42,7 +44,8 @@ VStack {
 ```
 ### Depth Stack(ZStack)
 - ZStack 특성상 나중에 작성한게 먼저 작성한 것 보다 뷰 계층에서 상위에 위치함
-![](https://velog.velcdn.com/images/whk1140/post/898eb72d-930a-4669-935e-e928211d41b2/image.png)
+<img width="125" alt="ZStack" src="https://github.com/ChanHyuc/StudySwift/assets/121753386/3e6141e7-0bdf-45ea-8250-42db2d703957">
+
 ```swift
 ZStack {
     Rectangle()
