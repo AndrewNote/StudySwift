@@ -1,0 +1,150 @@
+# Class(클래스) & Struct(구조체)
+
+## Common
+- Class & Struct 연관된 데이터들을 묶음으로 만듦
+- Class & Struct 내에 선언하는 변수 Property(속성)
+- Class & Struct 내에 선언하는 함수 Method(메서드)
+- 내부에 함수 실행문은 올 수 없다 fruit(), 선언문(Method)만 올 수 있다. func fruit(){}
+- Class & Struct instance는 실제로 메모리에 할당되어 구체적 실체를 갖춘 것을 의미함 fruit()
+- 소문자로 시작하고 ()로 끝나면 function 실행, 대문자로 시작하고 ()로 끝나면 instance를 실행
+```swift
+// Class && Struct
+class KakaoFriend {
+    var name = "라이언"        // Property (속성)
+    var species = "Lion"
+    func greet() {           // Method (메서드)
+        print("안녕! 나는 \(name)")
+    }
+}
+
+// 객체(실제 데이터)
+var apeach = KakaoFriend()  
+apeach.name
+apeach.species
+apeach.greet()
+
+var neo = KakaoFriend()
+neo.name
+neo.species
+neo.greet()
+```
+
+## Class
+- Reference Type(참조형식)
+- 데이터를 Heap에 저장, Heap을 가리키는 변수는 Stack에 저장한다
+- 메모리 주소값이 Heap을 가리킴
+- 복사시 값을 전달하는 것이 아닌 저장된 주소를 전달
+- Heap의 공간에 저장, ARC 시스템을 통해 메모리를 관리
+
+
+## Struct
+- Value Type(값형식)
+- 데이터 모두 Stack에 저장 / Heap 영역은 사용하지 않는다.
+- 복사시 값을 전달할때마다 복사본을 생성 (다른 메모리 공간 생성)
+- Stack에 저장된 값들은 종료시 메모리에서 자동 제거
+- Class만 할 수 있는 상속,serialize 같은 기능을 사용하지 않을거라면 메모리에 오랫동안 저장하지 않고 가벼운 Struct를 사용하는것을 애플이 권장하고 있음
+
+## 메모리
+- Heap은 비어있는 영역을 찾지만 Stack은 차곡차곡 쌓음
+- var fruit = Apple() fruit변수는 Stack 영역에 생성, **실제 데이터** Apple()은 Heap 영역에 만듦
+- Heap의 영역에 만들어진 메모리주소를 fruit 변수에 담는 것. 즉 fruit 변수에는 Apple의 실제 데이터의 메모리 주소만 담겨져 있다.
+
+## Class
+
+```swift
+class Fruit {
+    var name = "apple"  // 프로퍼티
+    var color = "red"
+    
+    func alert(){       // 메서드
+        print("\(name)은 \(color)색 입니다."
+    }
+    
+}
+Fruit()             // 함수처럼 혼자서 사용하지 못하고
+var apple = Fruit() // 변수에 넣어서 사용
+apple.color // red
+```
+
+## Class와 Struct 차이
+```swift
+class Fruit {
+    var color = "red"
+}
+
+var apple = Fruit() // Class 복사는 똑같은 주소를 가리키는 걸 만든다.
+var melon = apple // fruit이 Apple() 메모리 주소를 가리키는것과 동일한 주소가 melon에 대입된다.
+
+apple.color // red
+melon.color // red
+
+apple.color = "green"
+melon.color // green  그래서 fruit이 바뀌면 melon도 바뀌게 된다.
+
+
+struct Fruit {
+    var color = "green"
+}
+
+var apple = Fruit()     // Struct 복사는 동일한 데이터를 복사한다.
+var melon = apple      // 동일한 데이터가 따로따로 존재하게 된다.
+
+melon.color // green
+apple.color = "red"    // apple 값만 변경된다.
+melon.color // green
+```
+## let의 차이
+```swift
+class FruitClass {
+    var color = "red"
+}
+struct FruitStruct {
+    var color = "red"
+}
+
+let Aclass = FruitClass()
+let BStruct = FruitStruct()
+
+Aclass.color = green    // class라서 값에 let이 선언된게 아닌 메모리 주소에 let이 선언된거다.
+Aclass.color    // green, 즉 값은 변경할 수 있고 메모리 주소를 변경할 수 없기때문에 다른 객체를 가르킬 수 없다. 
+
+BStruct.color = green   // error let으로 선언했으므로 값 변경 불가
+```
+## 접문법 / Explicit Member Expression (명시적 멤버 표현식) 
+- 예를 들어 문자열리터럴도 내부적으로 구조체로 만들어져 있다, 즉 문자열 사용은 메모리에 인스턴스를 생성한거와 같다.
+ex "apple".count // 점문법을 통해서 구조체를 접근한다.
+
+
+## initialization(초기화)
+- class를 만들 때 속성에 기본값을 만들면 class를 이용해 새로운 데이터를 만들 때마다 값을 변경해주어야 한다.
+- 사용하려는 변수를 초기화 해야한다.
+- 생성자 실행 종료시점에는 모든 속성(변수)의 초기값이 저장되어 있어야 한다(초기화가 안되어 있으면 컴파일 에러)
+- 인스턴스내에서 동일한 변수명, 상수명을 사용할 때 가리키는 것을 명확하게 하기 위해서 self 키워드를 사용함
+- self 키워드는 class & struct 내에서 해당 인스턴스(자기자신)을 가리킴
+```swift
+class Fruit {
+    var color: String   // 타입만 선언
+    var price: Int      // 생성자를 만들기전에 초기값이 꼭 있어야 한다.
+
+    init(color: String, price: Int) { // initializer (생성자) 초기화 역할을 한다.
+        self.color = color // 선언한 color이랑 init의 매개변수 color이랑 구분하기 위해 self 사용
+        self.price = price // self.price는 위에 선언한 price, = price는 init의 파라미터 price를 말한다.
+    }
+    
+var apple = Fruit() // 생성자를 준것을 반드시 정의해야 하는데 정의 하지 않아서 에러발생.
+var apple = Fruit(color: String, price: Int) 
+    
+    init(c: String, p: Int) {
+        color = c
+        price = p
+    // 이렇게 사용하면 개발할 때 명확하게 하기 위해 다시 한번 확인해야하는 불편함이 있기 때문에 위와같이 self를 사용해서 똑같은 파라미터이름을 준다.
+    }
+}
+```
+
+## Identity Operators(식별 연산자)
+- 두개의 참조가 같은 인스턴스를 가르키고 있는지를 비교함
+```swift
+apple === melon
+apple !== melon
+```
