@@ -63,7 +63,7 @@ int main() {
 - replace(변경하기전 문자열, 몇글자를 변경할 것인지의 숫자, 변경할 문자열)
 
 ## 문자열 숫자형으로 변경, 숫자형 문자열로 변경
-```swift
+```cpp
 int main() {
     string str1 = "1000";
     int integer1 = 234;
