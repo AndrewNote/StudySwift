@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		71004DC42A923809005ABE48 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71004DC32A923809005ABE48 /* ProductRow.swift */; };
 		7105D2AD2A90DC74005017EE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105D2AC2A90DC74005017EE /* Product.swift */; };
+		718AFABF2AAAD0A60062A043 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718AFABE2AAAD0A60062A043 /* Test.swift */; };
 		718EA4072A88B1C900C923A3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718EA4062A88B1C900C923A3 /* Home.swift */; };
 		719D96B02A94D7EF00C62365 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719D96AF2A94D7EF00C62365 /* ColorExtension.swift */; };
 		71B9265C2A84D889003DCAC4 /* SweetSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B9265B2A84D889003DCAC4 /* SweetSwiftUIApp.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		71004DC32A923809005ABE48 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
 		7105D2AC2A90DC74005017EE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		718AFABE2AAAD0A60062A043 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		718EA4062A88B1C900C923A3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		719D96AF2A94D7EF00C62365 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		71B926582A84D889003DCAC4 /* SweetSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweetSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +44,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		718AFAC02AAAEC9D0062A043 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				718AFAC22AAAED3D0062A043 /* Model */,
+				718AFAC32AAAED430062A043 /* User Interface */,
+				718AFAC42AAAED4C0062A043 /* Helper */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		718AFAC12AAAED190062A043 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71B9265F2A84D88A003DCAC4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		718AFAC22AAAED3D0062A043 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		718AFAC32AAAED430062A043 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				718AFAC52AAAED660062A043 /* Home */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		718AFAC42AAAED4C0062A043 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				718AFAC62AAAEF8F0062A043 /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		718AFAC52AAAED660062A043 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				718EA4062A88B1C900C923A3 /* Home.swift */,
+				71004DC32A923809005ABE48 /* ProductRow.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		718AFAC62AAAEF8F0062A043 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				719D96AF2A94D7EF00C62365 /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		71B9264F2A84D889003DCAC4 = {
 			isa = PBXGroup;
 			children = (
@@ -61,14 +121,13 @@
 		71B9265A2A84D889003DCAC4 /* SweetSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				718AFAC02AAAEC9D0062A043 /* Sources */,
+				718AFAC12AAAED190062A043 /* Resources */,
 				71B9265B2A84D889003DCAC4 /* SweetSwiftUIApp.swift */,
 				71B9265D2A84D889003DCAC4 /* ContentView.swift */,
-				718EA4062A88B1C900C923A3 /* Home.swift */,
 				7105D2AC2A90DC74005017EE /* Product.swift */,
-				71004DC32A923809005ABE48 /* ProductRow.swift */,
-				719D96AF2A94D7EF00C62365 /* ColorExtension.swift */,
+				718AFABE2AAAD0A60062A043 /* Test.swift */,
 				71B9266D2A84D91A003DCAC4 /* TextExample.swift */,
-				71B9265F2A84D88A003DCAC4 /* Assets.xcassets */,
 				71B926612A84D88A003DCAC4 /* Preview Content */,
 			);
 			path = SweetSwiftUI;
@@ -157,6 +216,7 @@
 				71004DC42A923809005ABE48 /* ProductRow.swift in Sources */,
 				7105D2AD2A90DC74005017EE /* Product.swift in Sources */,
 				718EA4072A88B1C900C923A3 /* Home.swift in Sources */,
+				718AFABF2AAAD0A60062A043 /* Test.swift in Sources */,
 				719D96B02A94D7EF00C62365 /* ColorExtension.swift in Sources */,
 				71B9265C2A84D889003DCAC4 /* SweetSwiftUIApp.swift in Sources */,
 			);
