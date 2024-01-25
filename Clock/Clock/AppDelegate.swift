@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Clock
-//
-//  Created by ChanHyuc on 1/23/24.
-//
-
 import UIKit
 
 @main

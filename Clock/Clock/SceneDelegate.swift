@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Clock
-//
-//  Created by ChanHyuc on 1/23/24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -19,6 +12,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = TabbarController()
         window?.makeKeyAndVisible()
+        
+        window?.tintColor = .systemOrange
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

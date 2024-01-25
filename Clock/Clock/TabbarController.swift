@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Clock
-//
-//  Created by ChanHyuc on 1/23/24.
-//
-
 import UIKit
 
 class TabbarController: UIViewController {
@@ -20,13 +13,8 @@ class TabbarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         configureTabbar()
         configureTabbarItem()
-    }
-    
-    private func configureUI() {
-        view.backgroundColor = .systemBackground
     }
     
     private func configureTabbar() {
@@ -37,15 +25,11 @@ class TabbarController: UIViewController {
     }
     
     private func configureTabbarItem() {
-        tabbarController.tabBar.tintColor = .systemOrange
         tabbarController.tabBar.unselectedItemTintColor = .white
-        for i in 0...3 {
-            if let item = tabbarController.tabBar.items {
-                item[i].title = itemName[i]
-                item[i].image = UIImage(systemName: itemImage[i])
-            }
+        tabbarController.tabBar.items?.enumerated().forEach { index, item in
+            item.title = itemName[index]
+            item.image = UIImage(systemName: itemImage[index])
         }
-        
     }
 
 }
