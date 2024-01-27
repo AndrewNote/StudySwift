@@ -2,31 +2,28 @@ import UIKit
 
 class WorldClockCell: UITableViewCell {
     
-    private let timeOffSetLabel = {
+    let timeOffSetLabel = {
         let label = UILabel()
         label.text = "오늘, +0시간"
         label.textColor = .secondaryLabel
         return label
     }()
     
-    private let timeZoneLabel = {
+    let timeZoneLabel = {
         let label = UILabel()
-        label.text = "서울"
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
     
-    private let timePeriodLable = {
+    let timePeriodLable = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34)
-        label.text = "오후"
         return label
     }()
     
-    private let timeLabel = {
+    let timeLabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 60, weight: .light)
-        label.text = "8:30"
         return label
     }()
     

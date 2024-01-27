@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712018362B650E2500C54CAB /* TimeZone+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712018352B650E2500C54CAB /* TimeZone+Util.swift */; };
 		716447D02B5FF1D000CC2B92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716447CF2B5FF1D000CC2B92 /* AppDelegate.swift */; };
 		716447D22B5FF1D000CC2B92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */; };
 		716447D42B5FF1D000CC2B92 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716447D32B5FF1D000CC2B92 /* TabbarController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712018352B650E2500C54CAB /* TimeZone+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+Util.swift"; sourceTree = "<group>"; };
 		716447CC2B5FF1D000CC2B92 /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		716447CF2B5FF1D000CC2B92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		712018342B650E1400C54CAB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				712018352B650E2500C54CAB /* TimeZone+Util.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		716447C32B5FF1D000CC2B92 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		716447CE2B5FF1D000CC2B92 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				712018342B650E1400C54CAB /* Extension */,
 				716447CF2B5FF1D000CC2B92 /* AppDelegate.swift */,
 				716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */,
 				716447D32B5FF1D000CC2B92 /* TabbarController.swift */,
@@ -154,6 +165,7 @@
 				71C550362B60FCBC00DB127D /* WorldClockController.swift in Sources */,
 				71E1FD602B62263100B140EC /* WorldClockCell.swift in Sources */,
 				716447D02B5FF1D000CC2B92 /* AppDelegate.swift in Sources */,
+				712018362B650E2500C54CAB /* TimeZone+Util.swift in Sources */,
 				71C5503C2B60FCE300DB127D /* TimerController.swift in Sources */,
 				716447D22B5FF1D000CC2B92 /* SceneDelegate.swift in Sources */,
 				71C5503A2B60FCD700DB127D /* StopwatchController.swift in Sources */,

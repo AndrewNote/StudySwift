@@ -2,6 +2,7 @@ import UIKit
 
 class WorldClockController: UIViewController {
     private let worldClockCell = "cell"
+    private var worldClockList = [TimeZone(identifier: "Asia/Seoul"), TimeZone(identifier: "Europe/Paris"), TimeZone(identifier: "America/New_York"), TimeZone(identifier: "Asia/Tehran"), TimeZone(identifier: "Asia/Vladivostok")]
     
     private let tableView = {
         let tableView = UITableView()
@@ -53,13 +54,22 @@ class WorldClockController: UIViewController {
 
 extension WorldClockController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return worldClockList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: worldClockCell, for: indexPath) as? WorldClockCell else {
             return UITableViewCell()
         }
+        
+        let target = worldClockList[indexPath.row]
+        
+        cell.timeOffSetLabel.text = target?.timeOffset
+        cell.timeZoneLabel.text = target?.city
+        cell.timeLabel.text = target?.currentTime
+        cell.timePeriodLable.text = target?.timePeriod
+        
+        
         return cell
     }
     
