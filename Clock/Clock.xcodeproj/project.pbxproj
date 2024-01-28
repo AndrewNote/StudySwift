@@ -13,6 +13,9 @@
 		716447D42B5FF1D000CC2B92 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716447D32B5FF1D000CC2B92 /* TabbarController.swift */; };
 		716447D92B5FF1D200CC2B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716447D82B5FF1D200CC2B92 /* Assets.xcassets */; };
 		716447DC2B5FF1D200CC2B92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716447DA2B5FF1D200CC2B92 /* LaunchScreen.storyboard */; };
+		717182022B664FC100E986FF /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717182012B664FC100E986FF /* CitySelectionViewController.swift */; };
+		717182042B6656F500E986FF /* CitySelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717182032B6656F500E986FF /* CitySelectionCell.swift */; };
+		717182062B665EAE00E986FF /* String+Hangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717182052B665EAE00E986FF /* String+Hangul.swift */; };
 		71C550362B60FCBC00DB127D /* WorldClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550352B60FCBC00DB127D /* WorldClockController.swift */; };
 		71C550382B60FCCA00DB127D /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550372B60FCCA00DB127D /* AlarmController.swift */; };
 		71C5503A2B60FCD700DB127D /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550392B60FCD700DB127D /* StopwatchController.swift */; };
@@ -29,6 +32,9 @@
 		716447D82B5FF1D200CC2B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		716447DB2B5FF1D200CC2B92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		716447DD2B5FF1D200CC2B92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717182012B664FC100E986FF /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
+		717182032B6656F500E986FF /* CitySelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionCell.swift; sourceTree = "<group>"; };
+		717182052B665EAE00E986FF /* String+Hangul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hangul.swift"; sourceTree = "<group>"; };
 		71C550352B60FCBC00DB127D /* WorldClockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockController.swift; sourceTree = "<group>"; };
 		71C550372B60FCCA00DB127D /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		71C550392B60FCD700DB127D /* StopwatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				712018352B650E2500C54CAB /* TimeZone+Util.swift */,
+				717182052B665EAE00E986FF /* String+Hangul.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -79,6 +86,8 @@
 				716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */,
 				716447D32B5FF1D000CC2B92 /* TabbarController.swift */,
 				71C550352B60FCBC00DB127D /* WorldClockController.swift */,
+				717182012B664FC100E986FF /* CitySelectionViewController.swift */,
+				717182032B6656F500E986FF /* CitySelectionCell.swift */,
 				71E1FD5F2B62263100B140EC /* WorldClockCell.swift */,
 				71C550372B60FCCA00DB127D /* AlarmController.swift */,
 				71C550392B60FCD700DB127D /* StopwatchController.swift */,
@@ -166,6 +175,9 @@
 				71E1FD602B62263100B140EC /* WorldClockCell.swift in Sources */,
 				716447D02B5FF1D000CC2B92 /* AppDelegate.swift in Sources */,
 				712018362B650E2500C54CAB /* TimeZone+Util.swift in Sources */,
+				717182022B664FC100E986FF /* CitySelectionViewController.swift in Sources */,
+				717182062B665EAE00E986FF /* String+Hangul.swift in Sources */,
+				717182042B6656F500E986FF /* CitySelectionCell.swift in Sources */,
 				71C5503C2B60FCE300DB127D /* TimerController.swift in Sources */,
 				716447D22B5FF1D000CC2B92 /* SceneDelegate.swift in Sources */,
 				71C5503A2B60FCD700DB127D /* StopwatchController.swift in Sources */,

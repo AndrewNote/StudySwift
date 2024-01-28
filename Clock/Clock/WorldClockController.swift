@@ -47,7 +47,7 @@ class WorldClockController: UIViewController {
     }
     
     @objc private func didTapPlusButton() {
-        
+        present(UINavigationController(rootViewController: CitySelectionViewController()), animated: true)
     }
     
 }
