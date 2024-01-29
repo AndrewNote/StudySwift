@@ -1,5 +1,3 @@
-import Foundation
-
 extension String {
     // 문자열 양쪽에 빈문자열이나 줄바꿈이 있을 때 초성을 가져올 수 없음
     var initialConsonant: String? {
