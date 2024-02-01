@@ -21,7 +21,8 @@ extension TimeZone {
     }
     
     var city: String? {
-        return identifier.components(separatedBy: "/").last
+        let city = identifier.components(separatedBy: "/").last
+        return city?.replacingOccurrences(of: "_", with: " ")
     }
     
     //secondsFromGMT(): TimeZone 클래스에 있음, 현재 시간대에서 GMT로부터의 차이를 초 단위로 반환

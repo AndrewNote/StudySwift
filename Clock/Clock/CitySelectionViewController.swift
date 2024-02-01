@@ -103,4 +103,14 @@ extension CitySelectionViewController: UITableViewDataSource {
         cell.textLabel?.text = target.title
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return list[section].title
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        let consonantsAndAlphbet = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
+        return consonantsAndAlphbet
+    }
 }
