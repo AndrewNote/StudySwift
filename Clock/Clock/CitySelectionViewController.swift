@@ -110,7 +110,12 @@ extension CitySelectionViewController: UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let consonantsAndAlphbet = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
+        let consonantsAndAlphbet = ["ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         return consonantsAndAlphbet
+    }
+    
+    // 오른쪽 스크롤 인덱스를 누를 때 마다 호출되는 함수
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return list.firstIndex {$0.title.uppercased() == title.uppercased()} ?? 0
     }
 }
