@@ -22,6 +22,13 @@ class CitySelectionViewController: UIViewController {
         return tableView
     }()
     
+    private let searchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "검색"
+        searchBar.showsCancelButton = true
+        return searchBar
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableView()
@@ -66,6 +73,8 @@ class CitySelectionViewController: UIViewController {
     private func setTableView() {
         tableView.register(CitySelectionCell.self, forCellReuseIdentifier: citySelectionCell)
         tableView.dataSource = self
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
     }
     
     private func configureUI() {
@@ -117,5 +126,11 @@ extension CitySelectionViewController: UITableViewDataSource {
     // 오른쪽 스크롤 인덱스를 누를 때 마다 호출되는 함수
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return list.firstIndex {$0.title.uppercased() == title.uppercased()} ?? 0
+    }
+}
+
+extension CitySelectionViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true)
     }
 }
