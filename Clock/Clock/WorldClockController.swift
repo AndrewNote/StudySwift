@@ -4,7 +4,7 @@ class WorldClockController: UIViewController {
     private let worldClockCell = "cell"
     private var worldClockList = [TimeZone(identifier: "Asia/Seoul"), TimeZone(identifier: "Europe/Paris"), TimeZone(identifier: "America/New_York"), TimeZone(identifier: "Asia/Tehran"), TimeZone(identifier: "Asia/Vladivostok")]
     
-    private let tableView = {
+    private let worldClockTableView = {
         let tableView = UITableView()
         tableView.rowHeight = 100
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,17 +19,17 @@ class WorldClockController: UIViewController {
     }
     
     private func setTableView() {
-        tableView.dataSource = self
-        tableView.register(WorldClockCell.self, forCellReuseIdentifier: worldClockCell)
+        worldClockTableView.dataSource = self
+        worldClockTableView.register(WorldClockCell.self, forCellReuseIdentifier: worldClockCell)
     }
     
     private func configureTableView() {
-        view.addSubview(tableView)
+        view.addSubview(worldClockTableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            worldClockTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            worldClockTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            worldClockTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            worldClockTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -40,6 +40,9 @@ class WorldClockController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(didTapEditButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(didTapPlusButton))
+        
+        // 네비게이션 아이템에 editButton 추가
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     @objc private func didTapEditButton() {
@@ -80,4 +83,11 @@ extension WorldClockController: UITableViewDataSource {
         }
     }
     
+    // 네비게이션 상태가 바뀔때마다 호출되는 메서드
+    // 파라미터로 editing이 true가 전달되면 편집상태 false는 일반상태
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        // 테이블뷰에도 똑같은 메서드가 있음, 파라미터를 그대로 전달
+        worldClockTableView.setEditing(editing, animated: animated)
+    }
 }
