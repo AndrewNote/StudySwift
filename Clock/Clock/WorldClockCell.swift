@@ -63,7 +63,13 @@ class WorldClockCell: UITableViewCell {
             
             trailingStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             trailingStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-//            trailingStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5)
         ])
+    }
+    
+    // 테이블뷰에서 편집상태가 바뀔때 마다 호출
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        timePeriodLable.isHidden = editing
+        timeLabel.isHidden = editing
     }
 }
