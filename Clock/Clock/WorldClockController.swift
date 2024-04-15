@@ -90,4 +90,10 @@ extension WorldClockController: UITableViewDataSource {
         // 테이블뷰에도 똑같은 메서드가 있음, 파라미터를 그대로 전달
         worldClockTableView.setEditing(editing, animated: animated)
     }
+    
+    // 편집 모드시 우측에 햄버거 메뉴 활성화 셀의 순서를 바꿀 수 있음
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let target = worldClockList.remove(at: sourceIndexPath.row)
+        worldClockList.insert(target, at: destinationIndexPath.row)
+    }
 }
