@@ -1,6 +1,9 @@
 import UIKit
 
 class WorldClockController: UIViewController {
+    // Timer는 일정주기로 코드를 실행 CPU를 그만큼 많이 사용하고 배터리 소모가 큼, 그래서 가급적 적게 사용해야 함
+    var timer: Timer?
+    
     private let worldClockCell = "cell"
     private var worldClockList = [TimeZone(identifier: "Asia/Seoul"), TimeZone(identifier: "Europe/Paris"), TimeZone(identifier: "America/New_York"), TimeZone(identifier: "Asia/Tehran"), TimeZone(identifier: "Asia/Vladivostok")]
     

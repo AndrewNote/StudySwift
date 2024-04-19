@@ -20,6 +20,7 @@
 		71C550382B60FCCA00DB127D /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550372B60FCCA00DB127D /* AlarmController.swift */; };
 		71C5503A2B60FCD700DB127D /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550392B60FCD700DB127D /* StopwatchController.swift */; };
 		71C5503C2B60FCE300DB127D /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C5503B2B60FCE300DB127D /* TimerController.swift */; };
+		71C6CBA52BD28880000A10A9 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6CBA42BD28880000A10A9 /* Date+Util.swift */; };
 		71E1FD602B62263100B140EC /* WorldClockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E1FD5F2B62263100B140EC /* WorldClockCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		71C550372B60FCCA00DB127D /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		71C550392B60FCD700DB127D /* StopwatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
 		71C5503B2B60FCE300DB127D /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		71C6CBA42BD28880000A10A9 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		71E1FD5F2B62263100B140EC /* WorldClockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			children = (
 				712018352B650E2500C54CAB /* TimeZone+Util.swift */,
 				717182052B665EAE00E986FF /* String+Hangul.swift */,
+				71C6CBA42BD28880000A10A9 /* Date+Util.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				717182022B664FC100E986FF /* CitySelectionViewController.swift in Sources */,
 				717182062B665EAE00E986FF /* String+Hangul.swift in Sources */,
 				717182042B6656F500E986FF /* CitySelectionCell.swift in Sources */,
+				71C6CBA52BD28880000A10A9 /* Date+Util.swift in Sources */,
 				71C5503C2B60FCE300DB127D /* TimerController.swift in Sources */,
 				716447D22B5FF1D000CC2B92 /* SceneDelegate.swift in Sources */,
 				71C5503A2B60FCD700DB127D /* StopwatchController.swift in Sources */,
