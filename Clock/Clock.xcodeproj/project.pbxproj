@@ -65,6 +65,65 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		716177D12BDFB73B00693369 /* WorldClockModule */ = {
+			isa = PBXGroup;
+			children = (
+				71C550352B60FCBC00DB127D /* WorldClockController.swift */,
+				71E1FD5F2B62263100B140EC /* WorldClockCell.swift */,
+				717182012B664FC100E986FF /* CitySelectionViewController.swift */,
+				717182032B6656F500E986FF /* CitySelectionCell.swift */,
+			);
+			path = WorldClockModule;
+			sourceTree = "<group>";
+		};
+		716177D22BDFB76C00693369 /* AlarmModule */ = {
+			isa = PBXGroup;
+			children = (
+				71C550372B60FCCA00DB127D /* AlarmController.swift */,
+			);
+			path = AlarmModule;
+			sourceTree = "<group>";
+		};
+		716177D42BDFB78700693369 /* StopWatchModule */ = {
+			isa = PBXGroup;
+			children = (
+				71C550392B60FCD700DB127D /* StopwatchController.swift */,
+			);
+			path = StopWatchModule;
+			sourceTree = "<group>";
+		};
+		716177D52BDFB7BE00693369 /* TimerModule */ = {
+			isa = PBXGroup;
+			children = (
+				71C5503B2B60FCE300DB127D /* TimerController.swift */,
+			);
+			path = TimerModule;
+			sourceTree = "<group>";
+		};
+		716177D62BDFBADE00693369 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				716447CF2B5FF1D000CC2B92 /* AppDelegate.swift */,
+				716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */,
+				716447D82B5FF1D200CC2B92 /* Assets.xcassets */,
+				716447DA2B5FF1D200CC2B92 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		716177D72BDFBD1200693369 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				716447D32B5FF1D000CC2B92 /* TabbarController.swift */,
+				712018342B650E1400C54CAB /* Extension */,
+				716177D12BDFB73B00693369 /* WorldClockModule */,
+				716177D22BDFB76C00693369 /* AlarmModule */,
+				716177D42BDFB78700693369 /* StopWatchModule */,
+				716177D52BDFB7BE00693369 /* TimerModule */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		716447C32B5FF1D000CC2B92 = {
 			isa = PBXGroup;
 			children = (
@@ -84,19 +143,8 @@
 		716447CE2B5FF1D000CC2B92 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
-				712018342B650E1400C54CAB /* Extension */,
-				716447CF2B5FF1D000CC2B92 /* AppDelegate.swift */,
-				716447D12B5FF1D000CC2B92 /* SceneDelegate.swift */,
-				716447D32B5FF1D000CC2B92 /* TabbarController.swift */,
-				71C550352B60FCBC00DB127D /* WorldClockController.swift */,
-				717182012B664FC100E986FF /* CitySelectionViewController.swift */,
-				717182032B6656F500E986FF /* CitySelectionCell.swift */,
-				71E1FD5F2B62263100B140EC /* WorldClockCell.swift */,
-				71C550372B60FCCA00DB127D /* AlarmController.swift */,
-				71C550392B60FCD700DB127D /* StopwatchController.swift */,
-				71C5503B2B60FCE300DB127D /* TimerController.swift */,
-				716447D82B5FF1D200CC2B92 /* Assets.xcassets */,
-				716447DA2B5FF1D200CC2B92 /* LaunchScreen.storyboard */,
+				716177D72BDFBD1200693369 /* Source */,
+				716177D62BDFBADE00693369 /* Resources */,
 				716447DD2B5FF1D200CC2B92 /* Info.plist */,
 			);
 			path = Clock;
