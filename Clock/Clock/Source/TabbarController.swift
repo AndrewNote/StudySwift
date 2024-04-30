@@ -5,7 +5,7 @@ class TabbarController: UIViewController {
     private let tabbarController = UITabBarController()
     private let worldColock = UINavigationController(rootViewController: WorldClockController())
     private let alarm = UINavigationController(rootViewController: AlarmController())
-    private let stopwatch = UINavigationController(rootViewController: StopwatchController())
+    private let stopwatch = UINavigationController(rootViewController: StopWatchController())
     private let timer = UINavigationController(rootViewController: TimerController())
     
     private let itemName = ["세계 시계", "알람", "스톱워치", "타이머"]
