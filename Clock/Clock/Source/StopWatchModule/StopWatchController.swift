@@ -6,6 +6,7 @@ class StopWatchController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:00.00"
+        label.font = UIFont.boldSystemFont(ofSize: 80)
         return label
     }()
     
@@ -14,6 +15,7 @@ class StopWatchController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGreen
         button.setTitle("시작", for: .normal)
+        button.layer.cornerRadius = button.frame.size.width / 2
         return button
     }()
     
@@ -25,12 +27,6 @@ class StopWatchController: UIViewController {
         return button
     }()
     
-    private lazy var buttonStackView = {
-        let stackView = UIStackView(arrangedSubviews: [startButton, labButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -38,17 +34,19 @@ class StopWatchController: UIViewController {
     
     private func configureUI() {
         view.addSubview(stopWatchLabel)
-        view.addSubview(buttonStackView)
+        view.addSubview(labButton)
+        view.addSubview(startButton)
         
         NSLayoutConstraint.activate([
             stopWatchLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            stopWatchLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            stopWatchLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            stopWatchLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stopWatchLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             
-            buttonStackView.topAnchor.constraint(equalTo: stopWatchLabel.bottomAnchor, constant: 50),
-            buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            labButton.topAnchor.constraint(equalTo: stopWatchLabel.bottomAnchor, constant: 100),
+            labButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             
+            startButton.topAnchor.constraint(equalTo: stopWatchLabel.bottomAnchor, constant: 100),
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }
