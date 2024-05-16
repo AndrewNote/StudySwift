@@ -15,6 +15,7 @@ class TabbarController: UIViewController {
         super.viewDidLoad()
         configureTabbar()
         configureTabbarItem()
+        tabbarController.selectedIndex = 1
     }
     
     private func configureTabbar() {
