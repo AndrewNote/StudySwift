@@ -2,6 +2,8 @@ import UIKit
 
 class AlarmAddCell: UITableViewCell {
     
+    private var labels: [UILabel] = []
+    
     private let dayPeriod = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,22 +48,17 @@ class AlarmAddCell: UITableViewCell {
     }()
     
     @objc private func toggleSwitch(_ sender: UISwitch) {
-        if sender.isOn == true {
-            dayPeriod.textColor = .white
-            clockLabel.textColor = .white
-            alarmLabel.textColor = .white
-            loopLabel.textColor = .white
-        } else {
-            dayPeriod.textColor = .systemGray2
-            clockLabel.textColor = .systemGray2
-            alarmLabel.textColor = .systemGray2
-            loopLabel.textColor = .systemGray2
+        let labelColor: UIColor = sender.isOn ? .white : .systemGray2
+        
+        for label in labels {
+            label.textColor = labelColor
         }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
+        labels = [dayPeriod, clockLabel, alarmLabel, loopLabel]
     }
     
     required init?(coder: NSCoder) {
