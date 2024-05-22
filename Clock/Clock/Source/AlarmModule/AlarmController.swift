@@ -12,7 +12,7 @@ class AlarmController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(AlarmAddCell.self, forCellReuseIdentifier: alarmAddCell)
+        tableView.register(AlarmControllerCell.self, forCellReuseIdentifier: alarmAddCell)
         tableView.dataSource = self
         tableView.delegate = self
         configureUI()
@@ -36,7 +36,7 @@ extension AlarmController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: alarmAddCell, for: indexPath) as? AlarmAddCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: alarmAddCell, for: indexPath) as? AlarmControllerCell else {
             return UITableViewCell()
         }
         return cell

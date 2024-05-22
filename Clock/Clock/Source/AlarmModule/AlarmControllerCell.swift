@@ -1,6 +1,6 @@
 import UIKit
 
-class AlarmAddCell: UITableViewCell {
+class AlarmControllerCell: UITableViewCell {
     
     private var labels: [UILabel] = []
     
