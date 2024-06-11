@@ -16,6 +16,7 @@ class AlarmController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         configureUI()
+        configureNavigationBar()
     }
     
     private func configureUI() {
@@ -28,6 +29,24 @@ class AlarmController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "알람"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(didTapEditButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(didTapPlusButton))
+    }
+    
+    @objc private func didTapEditButton() {
+        
+    }
+    
+    @objc private func didTapPlusButton() {
+        present(AlarmAdd(), animated: true)
+    }
+    
 }
 
 extension AlarmController: UITableViewDataSource {
