@@ -3,7 +3,7 @@ import UIKit
 class TabbarController: UIViewController {
     
     private let tabbarController = UITabBarController()
-    private let worldColock = UINavigationController(rootViewController: WorldClockController())
+    private let worldClock = UINavigationController(rootViewController: WorldClockController())
     private let alarm = UINavigationController(rootViewController: AlarmController())
     private let stopwatch = UINavigationController(rootViewController: StopWatchController())
     private let timer = UINavigationController(rootViewController: TimerController())
@@ -19,7 +19,7 @@ class TabbarController: UIViewController {
     }
     
     private func configureTabbar() {
-        tabbarController.setViewControllers([worldColock, alarm, stopwatch, timer], animated: true)
+        tabbarController.setViewControllers([worldClock, alarm, stopwatch, timer], animated: true)
         addChild(tabbarController)
         view.addSubview(tabbarController.view)
         tabbarController.didMove(toParent: self)
@@ -27,6 +27,7 @@ class TabbarController: UIViewController {
     
     private func configureTabbarItem() {
         tabbarController.tabBar.unselectedItemTintColor = .white
+        
         tabbarController.tabBar.items?.enumerated().forEach { index, item in
             item.title = itemName[index]
             item.image = UIImage(systemName: itemImage[index])
