@@ -1,6 +1,13 @@
 import UIKit
 
+enum StopWatchState {
+    case start
+    case stop
+}
+
 class StopWatchController: UIViewController {
+    
+    var stopWatchState: StopWatchState = .start
     
     private let stopWatchLabel = {
         let label = UILabel()
@@ -13,17 +20,35 @@ class StopWatchController: UIViewController {
     private let startButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemGreen
+        button.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.5)
         button.setTitle("시작", for: .normal)
-        button.layer.cornerRadius = button.frame.size.width / 2
+        button.layer.cornerRadius = 25 // 50의 절반인 25로 설정
+//        button.layer.masksToBounds = true // cornerRadius가 적용되도록 설정
+        button.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc private func didTapStartButton(_ sender: UIButton) {
+        if stopWatchState == .start {
+            stopWatchState = .stop
+            sender.setTitle("중단", for: .normal)
+            sender.backgroundColor = UIColor.systemRed.withAlphaComponent(0.5)
+            labButton.setTitle("랩", for: .normal)
+            
+        } else {
+            stopWatchState = .start
+            sender.setTitle("시작", for: .normal)
+            sender.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.5)
+            labButton.setTitle("재설정", for: .normal)
+        }
+        
+    }
     
     private let labButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGray
-        button.setTitle("랩", for: .normal)
+        button.setTitle("재설정", for: .normal)
         return button
     }()
     
@@ -44,9 +69,13 @@ class StopWatchController: UIViewController {
             
             labButton.topAnchor.constraint(equalTo: stopWatchLabel.bottomAnchor, constant: 100),
             labButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            labButton.widthAnchor.constraint(equalToConstant: 50),
+            labButton.heightAnchor.constraint(equalToConstant: 50),
             
             startButton.topAnchor.constraint(equalTo: stopWatchLabel.bottomAnchor, constant: 100),
-            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            startButton.widthAnchor.constraint(equalToConstant: 50),
+            startButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
