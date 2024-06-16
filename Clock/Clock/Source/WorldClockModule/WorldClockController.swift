@@ -41,7 +41,7 @@ class WorldClockController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = "세계 시계"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(didTapEditButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(didTapEditButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(didTapPlusButton))
         
         // 네비게이션 아이템에 editButton 추가
