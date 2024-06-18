@@ -44,7 +44,7 @@ class AlarmController: UIViewController {
     }
     
     @objc private func didTapPlusButton() {
-        present(AlarmAdd(), animated: true)
+        present(AlarmEdit(), animated: true)
     }
     
 }
@@ -66,5 +66,9 @@ extension AlarmController: UITableViewDataSource {
 extension AlarmController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        present(AlarmEdit(), animated: true)
     }
 }

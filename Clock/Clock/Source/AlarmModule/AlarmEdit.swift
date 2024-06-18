@@ -1,6 +1,6 @@
 import UIKit
 
-class AlarmAdd: UIViewController {
+class AlarmEdit: UIViewController {
     
     private let titleLabel = {
         let label = UILabel()
@@ -24,13 +24,22 @@ class AlarmAdd: UIViewController {
         button.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
         return button
     }()
-    
-    private lazy var stackView = {
+        
+    private lazy var navigationStackView = {
         let stackView = UIStackView(arrangedSubviews: [cancelButton, titleLabel, saveButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 100
         return stackView
+    }()
+    
+    private let datePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.datePickerMode = .time
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "ko-KR")
+        return datePicker
     }()
     
     override func viewDidLoad() {
@@ -40,11 +49,17 @@ class AlarmAdd: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        view.addSubview(stackView)
+        view.addSubview(navigationStackView)
+        view.addSubview(datePicker)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            navigationStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            navigationStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            datePicker.topAnchor.constraint(equalTo: navigationStackView.bottomAnchor, constant: 10),
+            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
     
