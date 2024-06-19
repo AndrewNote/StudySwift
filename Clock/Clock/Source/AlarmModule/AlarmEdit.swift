@@ -1,5 +1,12 @@
 import UIKit
 
+enum UserDefalutKeys{
+    case alarmRepeat
+    case alarmLabel
+    case alarmSound
+    case snooze
+}
+
 class AlarmEdit: UIViewController {
     
     private let titleLabel = {
