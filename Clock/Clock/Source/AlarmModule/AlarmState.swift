@@ -1,8 +1,6 @@
-//
-//  AlarmState.swift
-//  Clock
-//
-//  Created by ChanHyuc on 6/19/24.
-//
+import UIKit
 
-import Foundation
+struct AlarmState {
+    var id: String
+    var isOn: Bool
+}

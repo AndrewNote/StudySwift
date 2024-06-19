@@ -1,6 +1,34 @@
 import UIKit
 
+extension UserDefaults {
+    func setAlarmState(_ isOn: Bool, for id: String) {
+        self.set(isOn, forKey: id)
+    }
+    
+    func getAlarmState(for id: String) -> Bool {
+        return self.bool(forKey: id)
+    }
+    
+}
+
 class AlarmControllerCell: UITableViewCell {
+    
+    var alarmId: String? {
+        didSet {
+            if let alarmId = alarmId {
+                let isOn = UserDefaults.standard.getAlarmState(for: alarmId)
+                alarmToggleSwitch.isOn = isOn
+                updateLabelColors(isOn: isOn)
+            }
+        }
+    }
+    
+    private func updateLabelColors(isOn: Bool) {
+        let labelColor: UIColor = isOn ? .white : .systemGray2
+        for label in labels {
+            label.textColor = labelColor
+        }
+    }
     
     private var labels: [UILabel] = []
     
@@ -40,7 +68,7 @@ class AlarmControllerCell: UITableViewCell {
         return label
     }()
     
-    private let alarmToggleSwitch = {
+    var alarmToggleSwitch = {
         let toggleSwitch = UISwitch()
         toggleSwitch.translatesAutoresizingMaskIntoConstraints = false
         toggleSwitch.addTarget(self, action: #selector(toggleSwitch(_:)), for: .valueChanged)
@@ -48,10 +76,9 @@ class AlarmControllerCell: UITableViewCell {
     }()
     
     @objc private func toggleSwitch(_ sender: UISwitch) {
-        let labelColor: UIColor = sender.isOn ? .white : .systemGray2
-        
-        for label in labels {
-            label.textColor = labelColor
+        if let alarmId = alarmId {
+            UserDefaults.standard.setAlarmState(sender.isOn, for: alarmId)
+            updateLabelColors(isOn: sender.isOn)
         }
     }
     

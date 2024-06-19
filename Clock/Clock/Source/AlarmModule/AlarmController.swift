@@ -2,6 +2,11 @@ import UIKit
 
 class AlarmController: UIViewController {
     
+    var alarmList: [AlarmState] = [
+        AlarmState(id: "alarm1", isOn: false),
+        AlarmState(id: "alarm2", isOn: false),
+    ]
+    
     private let alarmAddCell = "cell"
     
     private let tableView = {
@@ -51,13 +56,17 @@ class AlarmController: UIViewController {
 
 extension AlarmController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return alarmList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: alarmAddCell, for: indexPath) as? AlarmControllerCell else {
             return UITableViewCell()
         }
+        
+        let alarm = alarmList[indexPath.row]
+        cell.alarmId = alarm.id
+        cell.alarmToggleSwitch.isOn = UserDefaults.standard.getAlarmState(for: alarm.id)
         return cell
     }
     
