@@ -1,16 +1,5 @@
 import UIKit
 
-extension UserDefaults {
-    func setAlarmState(_ isOn: Bool, for id: String) {
-        self.set(isOn, forKey: id)
-    }
-    
-    func getAlarmState(for id: String) -> Bool {
-        return self.bool(forKey: id)
-    }
-    
-}
-
 class AlarmControllerCell: UITableViewCell {
     
     var alarmId: String? {

@@ -17,6 +17,7 @@
 		717182042B6656F500E986FF /* CitySelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717182032B6656F500E986FF /* CitySelectionCell.swift */; };
 		717182062B665EAE00E986FF /* String+Hangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717182052B665EAE00E986FF /* String+Hangul.swift */; };
 		71AABA142C22F41F0001134D /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AABA132C22F41F0001134D /* AlarmState.swift */; };
+		71AABA162C22FC650001134D /* UserDefaults+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AABA152C22FC650001134D /* UserDefaults+Util.swift */; };
 		71C550362B60FCBC00DB127D /* WorldClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550352B60FCBC00DB127D /* WorldClockController.swift */; };
 		71C550382B60FCCA00DB127D /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550372B60FCCA00DB127D /* AlarmController.swift */; };
 		71C5503A2B60FCD700DB127D /* StopWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C550392B60FCD700DB127D /* StopWatchController.swift */; };
@@ -40,6 +41,7 @@
 		717182032B6656F500E986FF /* CitySelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionCell.swift; sourceTree = "<group>"; };
 		717182052B665EAE00E986FF /* String+Hangul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hangul.swift"; sourceTree = "<group>"; };
 		71AABA132C22F41F0001134D /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
+		71AABA152C22FC650001134D /* UserDefaults+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Util.swift"; sourceTree = "<group>"; };
 		71C550352B60FCBC00DB127D /* WorldClockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockController.swift; sourceTree = "<group>"; };
 		71C550372B60FCCA00DB127D /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		71C550392B60FCD700DB127D /* StopWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				712018352B650E2500C54CAB /* TimeZone+Util.swift */,
 				717182052B665EAE00E986FF /* String+Hangul.swift */,
 				71C6CBA42BD28880000A10A9 /* Date+Util.swift */,
+				71AABA152C22FC650001134D /* UserDefaults+Util.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				71E1FD602B62263100B140EC /* WorldClockCell.swift in Sources */,
 				716447D02B5FF1D000CC2B92 /* AppDelegate.swift in Sources */,
 				712018362B650E2500C54CAB /* TimeZone+Util.swift in Sources */,
+				71AABA162C22FC650001134D /* UserDefaults+Util.swift in Sources */,
 				717182022B664FC100E986FF /* CitySelectionViewController.swift in Sources */,
 				717182062B665EAE00E986FF /* String+Hangul.swift in Sources */,
 				71AABA142C22F41F0001134D /* AlarmState.swift in Sources */,

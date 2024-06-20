@@ -2,7 +2,8 @@ import UIKit
 
 class AlarmController: UIViewController {
     
-    var alarmList: [AlarmState] = [
+    // ViewController은 UI와 데이터 모델을 연결하는 역할이므로 alarmList와 같은 데이터는 ViewController에 있는것이 적합
+    private var alarmList: [AlarmState] = [
         AlarmState(id: "alarm1", isOn: false),
         AlarmState(id: "alarm2", isOn: false),
     ]
@@ -15,13 +16,20 @@ class AlarmController: UIViewController {
         return tableView
     }()
     
+    // View Controller의 뷰가 메모리에 로드된 후 호출되며, 주로 뷰와 관련된 초기 설정을 주로 처리함
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
+        configureUI()
+        configureNavigationBar()
+    }
+    
+    // 가독성 향상, delegate, dataSource 메서드를 mock 객체를 사용하여 테스트를 수월하게 하기 위해 분리
+    // ViewDidLoad에 직접 사용해도 무방
+    private func setupTableView() {
         tableView.register(AlarmControllerCell.self, forCellReuseIdentifier: alarmAddCell)
         tableView.dataSource = self
         tableView.delegate = self
-        configureUI()
-        configureNavigationBar()
     }
     
     private func configureUI() {
@@ -66,6 +74,8 @@ extension AlarmController: UITableViewDataSource {
         
         let alarm = alarmList[indexPath.row]
         cell.alarmId = alarm.id
+        
+        // 각 알람의 고유한 ID를 사용해서 UserDefaults에 상태를 저장
         cell.alarmToggleSwitch.isOn = UserDefaults.standard.getAlarmState(for: alarm.id)
         return cell
     }
