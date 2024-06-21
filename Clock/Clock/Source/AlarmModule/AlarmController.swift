@@ -71,12 +71,9 @@ extension AlarmController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: alarmAddCell, for: indexPath) as? AlarmControllerCell else {
             return UITableViewCell()
         }
-        
         let alarm = alarmList[indexPath.row]
-        cell.alarmId = alarm.id
+        cell.configure(with: alarm.id)
         
-        // 각 알람의 고유한 ID를 사용해서 UserDefaults에 상태를 저장
-        cell.alarmToggleSwitch.isOn = UserDefaults.standard.getAlarmState(for: alarm.id)
         return cell
     }
     

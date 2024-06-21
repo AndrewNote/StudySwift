@@ -1,15 +1,16 @@
 import UIKit
 
+//    minus.circle.fill
+
 class AlarmControllerCell: UITableViewCell {
     
-    var alarmId: String? {
-        didSet {
-            if let alarmId = alarmId {
-                let isOn = UserDefaults.standard.getAlarmState(for: alarmId)
-                alarmToggleSwitch.isOn = isOn
-                updateLabelColors(isOn: isOn)
-            }
-        }
+    private var alarmId: String?
+    
+    func configure(with alarmId: String) {
+        self.alarmId = alarmId
+        let isOn = UserDefaults.standard.getAlarmState(for: alarmId)
+        alarmToggleSwitch.isOn = isOn
+        updateLabelColors(isOn: isOn)
     }
     
     private func updateLabelColors(isOn: Bool) {
@@ -57,7 +58,7 @@ class AlarmControllerCell: UITableViewCell {
         return label
     }()
     
-    var alarmToggleSwitch = {
+    private let alarmToggleSwitch = {
         let toggleSwitch = UISwitch()
         toggleSwitch.translatesAutoresizingMaskIntoConstraints = false
         toggleSwitch.addTarget(self, action: #selector(toggleSwitch(_:)), for: .valueChanged)

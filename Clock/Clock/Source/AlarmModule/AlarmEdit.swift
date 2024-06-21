@@ -49,15 +49,29 @@ class AlarmEdit: UIViewController {
         return datePicker
     }()
     
+    private let tableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupTableView()
+//        tableView.frame = self.view.bounds
+    }
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(navigationStackView)
         view.addSubview(datePicker)
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             navigationStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -66,16 +80,47 @@ class AlarmEdit: UIViewController {
             datePicker.topAnchor.constraint(equalTo: navigationStackView.bottomAnchor, constant: 10),
             datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+//            tableView.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 10),
+            tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
+    
     
     @objc private func didTapCancelButton() {
         dismiss(animated: true)
     }
     
     @objc private func didTapSaveButton() {
+        dismiss(animated: true)
+    }
+    
+}
+
+extension AlarmEdit: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = "반복"
+        case 1:
+            cell.textLabel?.text = "레이블"
+        case 2:
+            cell.textLabel?.text = "사운드"
+        case 3:
+            cell.textLabel?.text = "다시 알림"
+        default:
+            cell.textLabel?.text = ""
+        }
+        
+        return cell
     }
     
 }
