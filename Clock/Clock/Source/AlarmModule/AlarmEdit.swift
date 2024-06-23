@@ -52,6 +52,7 @@ class AlarmEdit: UIViewController {
     private let tableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
     
@@ -64,7 +65,6 @@ class AlarmEdit: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     private func configureUI() {
@@ -78,13 +78,13 @@ class AlarmEdit: UIViewController {
             navigationStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             datePicker.topAnchor.constraint(equalTo: navigationStackView.bottomAnchor, constant: 10),
-            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
-//            tableView.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 10),
-            tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            tableView.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     

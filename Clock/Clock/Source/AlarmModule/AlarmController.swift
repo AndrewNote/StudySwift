@@ -8,7 +8,7 @@ class AlarmController: UIViewController {
         AlarmState(id: "alarm2", isOn: false),
     ]
     
-    private let alarmAddCell = "cell"
+    private let alarmAddCell = "AlarmAddCell"
     
     private let tableView = {
         let tableView = UITableView()
@@ -76,7 +76,13 @@ extension AlarmController: UITableViewDataSource {
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            alarmList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+    }
 }
 
 extension AlarmController: UITableViewDelegate {
