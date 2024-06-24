@@ -1,13 +1,14 @@
 import UIKit
 
 class AlarmController: UIViewController {
-    
+
     // ViewController은 UI와 데이터 모델을 연결하는 역할이므로 alarmList와 같은 데이터는 ViewController에 있는것이 적합
     private var alarmList: [AlarmState] = [
         AlarmState(id: "alarm1", isOn: false),
         AlarmState(id: "alarm2", isOn: false),
     ]
     
+    private let vc = AlarmEdit()
     private let alarmAddCell = "AlarmAddCell"
     
     private let tableView = {
@@ -53,11 +54,12 @@ class AlarmController: UIViewController {
     }
     
     @objc private func didTapEditButton() {
-        
+
     }
     
     @objc private func didTapPlusButton() {
-        present(AlarmEdit(), animated: true)
+        vc.updateTitleLabel(for: .create)
+        present(vc, animated: true)
     }
     
 }
@@ -91,6 +93,7 @@ extension AlarmController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(AlarmEdit(), animated: true)
+        vc.updateTitleLabel(for: .edit)
+        present(vc, animated: true)
     }
 }

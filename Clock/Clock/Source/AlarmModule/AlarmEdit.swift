@@ -7,11 +7,16 @@ enum UserDefalutKeys{
     case snooze
 }
 
+enum AlarmEdidMode {
+    case create
+    case edit
+}
+
 class AlarmEdit: UIViewController {
     
     private let titleLabel = {
         let label = UILabel()
-        label.text = "알람 추가"
+        label.text = ""
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
@@ -88,6 +93,14 @@ class AlarmEdit: UIViewController {
         ])
     }
     
+    func updateTitleLabel(for mode: AlarmEdidMode) {
+        switch mode {
+        case .create:
+            titleLabel.text = "알람 생성"
+        case .edit:
+            titleLabel.text = "알람 편집"
+        }
+    }
     
     @objc private func didTapCancelButton() {
         dismiss(animated: true)
