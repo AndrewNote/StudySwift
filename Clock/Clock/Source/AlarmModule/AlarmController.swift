@@ -9,6 +9,7 @@ class AlarmController: UIViewController {
     ]
     
     private let vc = AlarmEdit()
+    private let vcCell = AlarmControllerCell()
     private let alarmAddCell = "AlarmAddCell"
     
     private let tableView = {
@@ -54,7 +55,7 @@ class AlarmController: UIViewController {
     }
     
     @objc private func didTapEditButton() {
-
+        vcCell.editMode()
     }
     
     @objc private func didTapPlusButton() {
@@ -82,7 +83,6 @@ extension AlarmController: UITableViewDataSource {
         if editingStyle == .delete {
             alarmList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         }
     }
 }

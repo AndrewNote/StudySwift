@@ -1,21 +1,32 @@
-//    minus.circle.fill
 import UIKit
 
 class AlarmControllerCell: UITableViewCell {
     
     private var alarmId: String?
     
-    func configure(with alarmId: String) {
-        self.alarmId = alarmId
-        let isOn = UserDefaults.standard.getAlarmState(for: alarmId)
-        alarmToggleSwitch.isOn = isOn
-        updateLabelColors(isOn: isOn)
-    }
+    private let editImage = {
+        let imageView = UIImageView(image: UIImage(systemName: "minus.circle.fill"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = .red
+        imageView.isHidden = true
+        return imageView
+    }()
     
-    private func updateLabelColors(isOn: Bool) {
-        let labelColor: UIColor = isOn ? .white : .systemGray2
-        for label in labels {
-            label.textColor = labelColor
+    private let testButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func didTapButton() {
+        if editImage.isHidden {
+            editImage.isHidden = false
+            alarmToggleSwitch.isHidden = true
+        } else {
+            editImage.isHidden = true
+            alarmToggleSwitch.isHidden = false
         }
     }
     
@@ -87,8 +98,15 @@ class AlarmControllerCell: UITableViewCell {
         addSubview(alarmLabel)
         addSubview(loopLabel)
         contentView.addSubview(alarmToggleSwitch)
+        contentView.addSubview(editImage)
+        contentView.addSubview(testButton)
         
         NSLayoutConstraint.activate([
+            testButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            testButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            testButton.heightAnchor.constraint(equalToConstant: 50),
+            testButton.widthAnchor.constraint(equalToConstant: 50),
+            
             dayPeriod.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             dayPeriod.bottomAnchor.constraint(equalTo: alarmLabel.topAnchor, constant: -10),
             clockLabel.leadingAnchor.constraint(equalTo: dayPeriod.trailingAnchor),
@@ -101,6 +119,34 @@ class AlarmControllerCell: UITableViewCell {
             
             alarmToggleSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             alarmToggleSwitch.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            editImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            editImage.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
+    
+    func configure(with alarmId: String) {
+        self.alarmId = alarmId
+        let isOn = UserDefaults.standard.getAlarmState(for: alarmId)
+        alarmToggleSwitch.isOn = isOn
+        updateLabelColors(isOn: isOn)
+    }
+    
+    func editMode() {
+        if editImage.isHidden {
+            editImage.isHidden = false
+            alarmToggleSwitch.isHidden = true
+        } else {
+            editImage.isHidden = true
+            alarmToggleSwitch.isHidden = false
+        }
+    }
+    
+    private func updateLabelColors(isOn: Bool) {
+        let labelColor: UIColor = isOn ? .white : .systemGray2
+        for label in labels {
+            label.textColor = labelColor
+        }
+    }
+    
 }
