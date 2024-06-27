@@ -55,7 +55,7 @@ class AlarmController: UIViewController {
     }
     
     @objc private func didTapEditButton() {
-        vcCell.editMode()
+        
     }
     
     @objc private func didTapPlusButton() {

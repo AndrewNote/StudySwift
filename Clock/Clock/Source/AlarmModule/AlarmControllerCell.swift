@@ -1,8 +1,14 @@
 import UIKit
 
+enum AlarmTableViewMode {
+    case common
+    case edit
+}
+
 class AlarmControllerCell: UITableViewCell {
     
     private var alarmId: String?
+    private var alarmTalbeViewMode: AlarmTableViewMode = .common
     
     private let editImage = {
         let imageView = UIImageView(image: UIImage(systemName: "minus.circle.fill"))
@@ -11,24 +17,6 @@ class AlarmControllerCell: UITableViewCell {
         imageView.isHidden = true
         return imageView
     }()
-    
-    private let testButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .red
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc private func didTapButton() {
-        if editImage.isHidden {
-            editImage.isHidden = false
-            alarmToggleSwitch.isHidden = true
-        } else {
-            editImage.isHidden = true
-            alarmToggleSwitch.isHidden = false
-        }
-    }
     
     private var labels: [UILabel] = []
     
@@ -99,14 +87,8 @@ class AlarmControllerCell: UITableViewCell {
         addSubview(loopLabel)
         contentView.addSubview(alarmToggleSwitch)
         contentView.addSubview(editImage)
-        contentView.addSubview(testButton)
         
         NSLayoutConstraint.activate([
-            testButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            testButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            testButton.heightAnchor.constraint(equalToConstant: 50),
-            testButton.widthAnchor.constraint(equalToConstant: 50),
-            
             dayPeriod.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             dayPeriod.bottomAnchor.constraint(equalTo: alarmLabel.topAnchor, constant: -10),
             clockLabel.leadingAnchor.constraint(equalTo: dayPeriod.trailingAnchor),
@@ -132,13 +114,15 @@ class AlarmControllerCell: UITableViewCell {
         updateLabelColors(isOn: isOn)
     }
     
-    func editMode() {
-        if editImage.isHidden {
+    func alarmTableViewMode() {
+        if alarmTalbeViewMode == .common {
             editImage.isHidden = false
             alarmToggleSwitch.isHidden = true
+            alarmTalbeViewMode = .edit
         } else {
             editImage.isHidden = true
             alarmToggleSwitch.isHidden = false
+            alarmTalbeViewMode = .common
         }
     }
     
