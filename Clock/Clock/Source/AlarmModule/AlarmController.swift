@@ -1,6 +1,17 @@
 import UIKit
 
+enum AlarmTableViewMode {
+    case common
+    case edit
+}
+
+protocol TableViewMode {
+    func mode(mode: AlarmTableViewMode)
+}
+
 class AlarmController: UIViewController {
+    
+    var delegate: TableViewMode?
 
     // ViewController은 UI와 데이터 모델을 연결하는 역할이므로 alarmList와 같은 데이터는 ViewController에 있는것이 적합
     private var alarmList: [AlarmState] = [
@@ -55,6 +66,11 @@ class AlarmController: UIViewController {
     }
     
     @objc private func didTapEditButton() {
+        if navigationItem.leftBarButtonItem?.title == "편집" {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(didTapEditButton))
+        } else {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(didTapEditButton))
+        }
         
     }
     

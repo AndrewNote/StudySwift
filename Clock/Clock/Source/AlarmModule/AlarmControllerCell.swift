@@ -1,12 +1,11 @@
 import UIKit
 
-enum AlarmTableViewMode {
-    case common
-    case edit
-}
-
-class AlarmControllerCell: UITableViewCell {
+class AlarmControllerCell: UITableViewCell, TableViewMode {
+    func mode(mode: AlarmTableViewMode) {
+        alarmTalbeViewMode = .edit
+    }
     
+    private let vc = AlarmController()
     private var alarmId: String?
     private var alarmTalbeViewMode: AlarmTableViewMode = .common
     
@@ -74,6 +73,7 @@ class AlarmControllerCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
         labels = [dayPeriod, clockLabel, alarmLabel, loopLabel]
+        vc.delegate = self
     }
     
     required init?(coder: NSCoder) {
